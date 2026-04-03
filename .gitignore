@@ -1,0 +1,24 @@
+.DS_Store
+build/
+Builds/**/build/
+Builds/**/xcuserdata/
+Builds/**/DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.a
+*.o
+*.obj
+*.dSYM
+*.swp
+*.swo
+*.user
+*.sln
+*.vcxproj.user
+
+# Local plugin artifacts
+*.component
+*.vst3
+*.app
+
+# User presets and local OS clutter
+Thumbs.db
