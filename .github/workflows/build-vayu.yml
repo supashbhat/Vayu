@@ -1,0 +1,108 @@
+name: Build Vayu
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14
+            artifact_prefix: vayu-macos
+          - os: windows-2022
+            artifact_prefix: vayu-windows
+          - os: ubuntu-24.04
+            artifact_prefix: vayu-linux
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ninja-build \
+            pkg-config \
+            libasound2-dev \
+            libjack-jackd2-dev \
+            ladspa-sdk \
+            libfreetype6-dev \
+            libx11-dev \
+            libxcomposite-dev \
+            libxcursor-dev \
+            libxext-dev \
+            libxinerama-dev \
+            libxrandr-dev \
+            libxrender-dev \
+            libglu1-mesa-dev \
+            mesa-common-dev \
+            libx11-xcb-dev \
+            libxkbcommon-dev \
+            libxkbcommon-x11-dev
+
+      - name: Fetch JUCE
+        shell: bash
+        run: |
+          git clone --depth 1 --branch 8.0.4 https://github.com/juce-framework/JUCE.git "$RUNNER_TEMP/JUCE"
+
+      - name: Configure CMake
+        shell: bash
+        run: |
+          cmake -S . -B build -DJUCE_DIR="$RUNNER_TEMP/JUCE"
+
+      - name: Build
+        shell: bash
+        run: |
+          cmake --build build --config Release --parallel
+
+      - name: Package macOS artifacts
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p dist
+          app_path="$(find build -type d -name 'Vayu.app' | head -n 1)"
+          au_path="$(find build -type d -name 'Vayu.component' | head -n 1)"
+          vst3_path="$(find build -type d -name 'Vayu.vst3' | head -n 1)"
+          ditto -c -k --sequesterRsrc --keepParent "$app_path" "dist/Vayu-macOS-Standalone.zip"
+          ditto -c -k --sequesterRsrc --keepParent "$au_path" "dist/Vayu-macOS-AU.zip"
+          ditto -c -k --sequesterRsrc --keepParent "$vst3_path" "dist/Vayu-macOS-VST3.zip"
+
+      - name: Package Windows artifacts
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          $standalone = Get-ChildItem -Path build -Recurse -Filter "Vayu.exe" | Select-Object -First 1
+          $vst3 = Get-ChildItem -Path build -Recurse -Filter "Vayu.vst3" | Select-Object -First 1
+          if ($standalone) { Compress-Archive -Path $standalone.FullName -DestinationPath "dist/Vayu-Windows-Standalone.zip" -Force }
+          if ($vst3) { Compress-Archive -Path $vst3.FullName -DestinationPath "dist/Vayu-Windows-VST3.zip" -Force }
+
+      - name: Package Linux artifacts
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          mkdir -p dist
+          standalone_path="$(find build -type f -name 'Vayu' | head -n 1)"
+          vst3_path="$(find build -type d -name 'Vayu.vst3' | head -n 1)"
+          if [ -n "$standalone_path" ]; then
+            tar -czf "dist/Vayu-Linux-Standalone.tar.gz" -C "$(dirname "$standalone_path")" "$(basename "$standalone_path")"
+          fi
+          if [ -n "$vst3_path" ]; then
+            tar -czf "dist/Vayu-Linux-VST3.tar.gz" -C "$(dirname "$vst3_path")" "$(basename "$vst3_path")"
+          fi
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_prefix }}
+          path: dist/*
+          if-no-files-found: error
