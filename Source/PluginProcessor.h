@@ -59,6 +59,7 @@ public:
     juce::StringArray getUserEffectPresetNames(EffectSlot effectSlot) const;
     bool saveUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName);
     bool loadUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName);
+    bool deleteUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName);
     float getMagnitudeResponseAtFrequency(double frequency) const;
     float getInputLevel() const noexcept;
     float getOutputLevel() const noexcept;

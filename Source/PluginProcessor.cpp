@@ -1177,6 +1177,20 @@ bool AudioEQAudioProcessor::loadUserEffectPreset(EffectSlot effectSlot, const ju
     return true;
 }
 
+bool AudioEQAudioProcessor::deleteUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
+{
+    const auto trimmedName = presetName.trim();
+    if (trimmedName.isEmpty())
+        return false;
+
+    const auto file = getUserEffectPresetDirectory(effectSlot)
+                          .getChildFile(trimmedName.replaceCharacter('/', '-').replaceCharacter(':', '-') + ".vayu-effect");
+    if (!file.existsAsFile())
+        return false;
+
+    return file.deleteFile();
+}
+
 float AudioEQAudioProcessor::getMagnitudeResponseAtFrequency(double frequency) const
 {
     const auto sampleRate = currentSampleRate > 0.0 ? currentSampleRate : 44100.0;

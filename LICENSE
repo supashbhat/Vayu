@@ -1,21 +1,27 @@
-MIT License
+Vayu Source Availability And Binary Use Notice
 
-Copyright (c) 2026 Supash Bhat
+Copyright (c) 2026 Supash Bhat. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The Vayu source code in this repository is made visible for reference and project history only.
+No permission is granted to copy, modify, adapt, translate, reverse engineer, distribute,
+publish, sublicense, create derivative works from, or build and redistribute this source code,
+in whole or in part, without prior written permission from the copyright holder.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Viewing or downloading the source code from this repository does not grant any license to use
+the source code itself in another project, fork, product, plugin, library, service, or release.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Official binary releases of Vayu that are published by Supash Bhat may be downloaded and used
+free of charge for music production, sound design, evaluation, and normal end-user playback or
+plugin use on supported systems.
+
+This notice does not grant permission to:
+
+1. Repackage unofficial builds of Vayu.
+2. Modify and redistribute Vayu.
+3. Use the source code to create derivative or competing products.
+4. Redistribute the source repository or substantial portions of it.
+
+Third-party software and dependencies used by this project remain subject to their own licenses.
+
+For licensing requests, collaboration, or commercial distribution questions, contact:
+supash_bhat@berkeley.edu

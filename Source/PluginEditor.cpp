@@ -834,6 +834,24 @@ public:
             }
         };
         addAndMakeVisible(savePresetButton);
+
+        deletePresetButton.setButtonText("Delete");
+        deletePresetButton.setColour(juce::TextButton::buttonColourId, juce::Colour::fromRGB(34, 82, 84).withAlpha(0.95f));
+        deletePresetButton.setColour(juce::TextButton::textColourOffId, juce::Colour::fromRGB(214, 255, 250));
+        deletePresetButton.setTooltip("Delete the selected user effect preset from this machine.");
+        deletePresetButton.onClick = [this]
+        {
+            const auto name = userPresetBox.getText().trim();
+            if (processor.deleteUserEffectPreset(currentSlot, name))
+            {
+                refreshUserPresetBox();
+                if (userPresetBox.getNumItems() > 0)
+                    userPresetBox.setSelectedItemIndex(0, juce::dontSendNotification);
+                else
+                    userPresetBox.setText({}, juce::dontSendNotification);
+            }
+        };
+        addAndMakeVisible(deletePresetButton);
         
         for (int i = 0; i < 3; ++i)
         {
@@ -968,6 +986,8 @@ public:
         auto userArea = area.removeFromTop(28);
         userPresetLabel.setBounds(userArea.removeFromLeft(48));
         savePresetButton.setBounds(userArea.removeFromRight(62));
+        userArea.removeFromRight(6);
+        deletePresetButton.setBounds(userArea.removeFromRight(72));
         userPresetBox.setBounds(userArea.reduced(0, 0));
 
         if (currentSlot == EffectSlot::compressor)
@@ -1008,13 +1028,18 @@ private:
     void refreshUserPresetBox()
     {
         const auto currentText = userPresetBox.getText();
+        const auto names = processor.getUserEffectPresetNames(currentSlot);
         userPresetBox.clear(juce::dontSendNotification);
-        userPresetBox.addItemList(processor.getUserEffectPresetNames(currentSlot), 1);
+        userPresetBox.addItemList(names, 1);
 
-        if (userPresetBox.getNumItems() > 0)
+        if (names.contains(currentText))
             userPresetBox.setText(currentText, juce::dontSendNotification);
+        else if (userPresetBox.getNumItems() > 0)
+            userPresetBox.setSelectedItemIndex(0, juce::dontSendNotification);
         else
             userPresetBox.setText({}, juce::dontSendNotification);
+
+        deletePresetButton.setEnabled(names.contains(userPresetBox.getText().trim()));
     }
 
     void refreshModeDescription()
@@ -1053,6 +1078,7 @@ private:
     juce::Label userPresetLabel;
     juce::ComboBox userPresetBox;
     juce::TextButton savePresetButton;
+    juce::TextButton deletePresetButton;
     std::array<juce::Slider, 3> sliders;
     std::array<juce::Label, 3> sliderLabels;
     juce::ComboBox modeBox;
