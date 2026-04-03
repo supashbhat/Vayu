@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string>Vayu.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.supash.audioeq</string>
+    <string>com.supash.vayu</string>
     <key>CFBundleName</key>
     <string>Vayu</string>
     <key>CFBundleDisplayName</key>

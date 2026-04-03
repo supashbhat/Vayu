@@ -14,8 +14,8 @@
 #define JucePlugin_ProducesMidiOutput 0
 #define JucePlugin_EditorRequiresKeyboardFocus 1
 
-#define JucePlugin_Name "Audio EQ"
-#define JucePlugin_Desc "Audio EQ"
+#define JucePlugin_Name "Vayu"
+#define JucePlugin_Desc "Vayu"
 #define JucePlugin_Manufacturer "Supash Bhat"
 #define JucePlugin_ManufacturerWebsite "supashbhat.github.io"
 #define JucePlugin_ManufacturerEmail ""
