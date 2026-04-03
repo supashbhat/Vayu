@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     name: Build on ${{ matrix.os }}
@@ -23,7 +26,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Linux dependencies
         if: runner.os == 'Linux'
@@ -51,18 +54,36 @@ jobs:
 
       - name: Fetch JUCE
         shell: bash
-        run: |
-          git clone --depth 1 --branch 8.0.4 https://github.com/juce-framework/JUCE.git "$RUNNER_TEMP/JUCE"
+        run: git clone --depth 1 --branch 8.0.4 https://github.com/juce-framework/JUCE.git "$RUNNER_TEMP/JUCE"
 
-      - name: Configure CMake
+      - name: Configure CMake on macOS and Linux
+        if: runner.os != 'Windows'
         shell: bash
         run: |
-          cmake -S . -B build -DJUCE_DIR="$RUNNER_TEMP/JUCE"
+          cmake -S . -B build -G Ninja -DJUCE_DIR="$RUNNER_TEMP/JUCE"
 
-      - name: Build
+      - name: Configure CMake on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_DIR="$env:RUNNER_TEMP/JUCE"
+
+      - name: Build on macOS and Linux
+        if: runner.os != 'Windows'
         shell: bash
         run: |
           cmake --build build --config Release --parallel
+
+      - name: Build on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          cmake --build build --config Release --parallel
+
+      - name: List build outputs
+        shell: bash
+        run: |
+          find build -maxdepth 5 \( -name 'Vayu.app' -o -name 'Vayu.component' -o -name 'Vayu.vst3' -o -name 'Vayu.exe' -o -name 'Vayu' \) -print || true
 
       - name: Package macOS artifacts
         if: runner.os == 'macOS'
@@ -85,6 +106,7 @@ jobs:
           $vst3 = Get-ChildItem -Path build -Recurse -Filter "Vayu.vst3" | Select-Object -First 1
           if ($standalone) { Compress-Archive -Path $standalone.FullName -DestinationPath "dist/Vayu-Windows-Standalone.zip" -Force }
           if ($vst3) { Compress-Archive -Path $vst3.FullName -DestinationPath "dist/Vayu-Windows-VST3.zip" -Force }
+          Get-ChildItem -Path dist
 
       - name: Package Linux artifacts
         if: runner.os == 'Linux'
@@ -99,10 +121,11 @@ jobs:
           if [ -n "$vst3_path" ]; then
             tar -czf "dist/Vayu-Linux-VST3.tar.gz" -C "$(dirname "$vst3_path")" "$(basename "$vst3_path")"
           fi
+          ls -lh dist
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_prefix }}
-          path: dist/*
+          path: dist
           if-no-files-found: error
