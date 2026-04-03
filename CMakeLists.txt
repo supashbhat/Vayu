@@ -6,9 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(JUCE_DIR "/usr/local/lib/cmake/JUCE-8.0.4" CACHE PATH "Path to the JUCE CMake package")
+set(JUCE_DIR "" CACHE PATH "Path to a JUCE source checkout or installed JUCE CMake package")
 
-find_package(JUCE CONFIG REQUIRED)
+if(JUCE_DIR AND EXISTS "${JUCE_DIR}/CMakeLists.txt")
+    add_subdirectory("${JUCE_DIR}" JUCE)
+elseif(JUCE_DIR AND EXISTS "${JUCE_DIR}/JUCEConfig.cmake")
+    list(PREPEND CMAKE_PREFIX_PATH "${JUCE_DIR}")
+    find_package(JUCE CONFIG REQUIRED)
+else()
+    find_package(JUCE CONFIG REQUIRED)
+endif()
 
 set(VAYU_FORMATS Standalone VST3)
 if(APPLE)

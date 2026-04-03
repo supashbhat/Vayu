@@ -60,13 +60,13 @@ jobs:
         if: runner.os != 'Windows'
         shell: bash
         run: |
-          cmake -S . -B build -G Ninja -DJUCE_DIR="$RUNNER_TEMP/JUCE/extras/Build/CMake"
+          cmake -S . -B build -G Ninja -DJUCE_DIR="$RUNNER_TEMP/JUCE"
 
       - name: Configure CMake on Windows
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_DIR="$env:RUNNER_TEMP/JUCE/extras/Build/CMake"
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_DIR="$env:RUNNER_TEMP/JUCE"
 
       - name: Build on macOS and Linux
         if: runner.os != 'Windows'
