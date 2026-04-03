@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		42D0747A94AC3AA0C1C1F075 /* AudioEQ - All */ = {
+		42D0747A94AC3AA0C1C1F075 /* Vayu - All */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1693892AD4A837B0D9003E88;
 			buildPhases = (
@@ -19,8 +19,8 @@
 				CE5D462DEA74D5126E7D3ECF,
 				E88F47830442830D05F5E2BA,
 			);
-			name = "AudioEQ - All";
-			productName = AudioEQ;
+			name = "Vayu - All";
+			productName = Vayu;
 		};
 /* End PBXAggregateTarget section */
 
@@ -97,7 +97,7 @@
 		10EF1DF4AD40D2472568B4F3 /* CoreAudio.framework */ /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1187DF2F36F581E5F79ECC81 /* include_juce_audio_basics.mm */ /* include_juce_audio_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_basics.mm; path = ../../JuceLibraryCode/include_juce_audio_basics.mm; sourceTree = SOURCE_ROOT; };
 		11A871EFD11D066F73C43BD5 /* juce_graphics */ /* juce_graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_graphics; path = /Users/Supash/JUCE/modules/juce_graphics; sourceTree = "<absolute>"; };
-		14731AD0A7D24DB0451268DF /* VST3 */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioEQ.vst3; sourceTree = BUILT_PRODUCTS_DIR; };
+		14731AD0A7D24DB0451268DF /* VST3 */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Vayu.vst3; sourceTree = BUILT_PRODUCTS_DIR; };
 		16268A25BEBBAC7D613B9314 /* include_juce_audio_processors_lv2_libs.cpp */ /* include_juce_audio_processors_lv2_libs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_processors_lv2_libs.cpp; path = ../../JuceLibraryCode/include_juce_audio_processors_lv2_libs.cpp; sourceTree = SOURCE_ROOT; };
 		1A1D2263BFCE75909081CDE6 /* include_juce_product_unlocking.mm */ /* include_juce_product_unlocking.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_product_unlocking.mm; path = ../../JuceLibraryCode/include_juce_product_unlocking.mm; sourceTree = SOURCE_ROOT; };
 		1ACDB9F0191643859224BE79 /* include_juce_opengl.mm */ /* include_juce_opengl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_opengl.mm; path = ../../JuceLibraryCode/include_juce_opengl.mm; sourceTree = SOURCE_ROOT; };
@@ -134,7 +134,7 @@
 		5E2A6B8A7D0E48F4FF9113BD /* include_juce_audio_processors_ara.cpp */ /* include_juce_audio_processors_ara.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_processors_ara.cpp; path = ../../JuceLibraryCode/include_juce_audio_processors_ara.cpp; sourceTree = SOURCE_ROOT; };
 		60A3A50498E800DDAA666C69 /* juce_audio_processors */ /* juce_audio_processors */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_processors; path = /Users/Supash/JUCE/modules/juce_audio_processors; sourceTree = "<absolute>"; };
 		6306274C8B825C30E352F279 /* OpenGL.framework */ /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		659062A38DC9C49A6A279DCF /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioEQ.component; sourceTree = BUILT_PRODUCTS_DIR; };
+		659062A38DC9C49A6A279DCF /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Vayu.component; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A9F9A2375381B821ABB6BD /* include_juce_events.mm */ /* include_juce_events.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_events.mm; path = ../../JuceLibraryCode/include_juce_events.mm; sourceTree = SOURCE_ROOT; };
 		6BAC2078EA22CD50555CA6CD /* juce_product_unlocking */ /* juce_product_unlocking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_product_unlocking; path = /Users/Supash/JUCE/modules/juce_product_unlocking; sourceTree = "<absolute>"; };
 		6E6F76F0300F565E56B92250 /* include_juce_osc.cpp */ /* include_juce_osc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_osc.cpp; path = ../../JuceLibraryCode/include_juce_osc.cpp; sourceTree = SOURCE_ROOT; };
@@ -436,7 +436,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00F993527FF9EC2A36F08779 /* AudioEQ - AU */ = {
+		00F993527FF9EC2A36F08779 /* Vayu - AU */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE1C31991F1B88FE7BDCC0F;
 			buildPhases = (
@@ -450,12 +450,12 @@
 			dependencies = (
 				3A8AC1B123FEC1262890C2F6,
 			);
-			name = "AudioEQ - AU";
-			productName = AudioEQ;
+			name = "Vayu - AU";
+			productName = Vayu;
 			productReference = 659062A38DC9C49A6A279DCF;
 			productType = "com.apple.product-type.bundle";
 		};
-		017B9DB6B60532FE38E6AD39 /* AudioEQ - VST3 Manifest Helper */ = {
+		017B9DB6B60532FE38E6AD39 /* Vayu - VST3 Manifest Helper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90E40247B15D06E1B2B4DAD6;
 			buildPhases = (
@@ -466,12 +466,12 @@
 			);
 			dependencies = (
 			);
-			name = "AudioEQ - VST3 Manifest Helper";
-			productName = AudioEQ;
+			name = "Vayu - VST3 Manifest Helper";
+			productName = Vayu;
 			productReference = D5D12384F92521B9B54C83DA;
 			productType = "com.apple.product-type.tool";
 		};
-		41C0C07D658C1E8B9A0F30E3 /* AudioEQ - Shared Code */ = {
+		41C0C07D658C1E8B9A0F30E3 /* Vayu - Shared Code */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53AD308B561659DEE5DF8E0E;
 			buildPhases = (
@@ -481,12 +481,12 @@
 			);
 			dependencies = (
 			);
-			name = "AudioEQ - Shared Code";
-			productName = AudioEQ;
+			name = "Vayu - Shared Code";
+			productName = Vayu;
 			productReference = 2FD2ED24BECF0453AF35C503;
 			productType = "com.apple.product-type.library.static";
 		};
-		EC61CF8D638ADC92243E482A /* AudioEQ - VST3 */ = {
+		EC61CF8D638ADC92243E482A /* Vayu - VST3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAACB75CF3BACD2AB6253495;
 			buildPhases = (
@@ -502,12 +502,12 @@
 				4323CF11C904CE8F4BC572C4,
 				D5AFE90095F4122F953CCA84,
 			);
-			name = "AudioEQ - VST3";
-			productName = AudioEQ;
+			name = "Vayu - VST3";
+			productName = Vayu;
 			productReference = 14731AD0A7D24DB0451268DF;
 			productType = "com.apple.product-type.bundle";
 		};
-		ED6483E1166AA37D56C6A2D9 /* AudioEQ - Standalone Plugin */ = {
+		ED6483E1166AA37D56C6A2D9 /* Vayu - Standalone Plugin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 146176028DA1D491AFDE05E6;
 			buildPhases = (
@@ -520,7 +520,7 @@
 			dependencies = (
 				812C8C42BF5EECB060C142C4,
 			);
-			name = "AudioEQ - Standalone Plugin";
+			name = "Vayu - Standalone Plugin";
 			productName = Vayu;
 			productReference = F3424B4A4B898F748A096867;
 			productType = "com.apple.product-type.application";
@@ -908,7 +908,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CODE_SIGN_FLAGS = --timestamp;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -998,7 +998,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1271,7 +1271,7 @@
 				OTHER_LDFLAGS = "-bundle -lAudioEQ";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1362,7 +1362,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1397,7 +1397,7 @@
 				OTHER_LDFLAGS = "-bundle -lAudioEQ";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1488,7 +1488,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1521,7 +1521,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lAudioEQ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1646,7 +1646,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lAudioEQ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1737,7 +1737,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1766,7 +1766,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
@@ -1857,7 +1857,7 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
@@ -1936,7 +1936,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = --timestamp;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -2064,7 +2064,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "AudioEQ";
+				PRODUCT_NAME = "Vayu";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;

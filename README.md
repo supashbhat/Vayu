@@ -90,8 +90,8 @@ VST2 is not included.
 If you download a release build from GitHub, you will typically see one or more of these:
 
 - `Vayu.app`
-- `AudioEQ.component` or `Vayu.component`
-- `AudioEQ.vst3` or `Vayu.vst3`
+- `Vayu.component`
+- `Vayu.vst3`
 
 Install locations:
 
@@ -144,12 +144,12 @@ If no Linux binaries are attached to a release yet, build from source using JUCE
 
 ### macOS Build
 
-1. Open [AudioEQ.jucer](AudioEQ.jucer) in Projucer if you want to regenerate project files.
-2. Open [AudioEQ.xcodeproj](Builds/MacOSX/AudioEQ.xcodeproj) in Xcode.
+1. Open [Vayu.jucer](Vayu.jucer) in Projucer if you want to regenerate project files.
+2. Open [Vayu.xcodeproj](Builds/MacOSX/Vayu.xcodeproj) in Xcode.
 3. Choose one of these schemes:
-   - `AudioEQ - Standalone Plugin`
-   - `AudioEQ - AU`
-   - `AudioEQ - VST3`
+   - `Vayu - Standalone Plugin`
+   - `Vayu - AU`
+   - `Vayu - VST3`
 4. Build and run.
 
 The standalone target is the fastest way to sanity-check audio flow, UI behavior, presets, and rack ordering before testing in a DAW.
