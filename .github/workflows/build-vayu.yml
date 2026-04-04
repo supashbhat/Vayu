@@ -39,7 +39,7 @@ jobs:
             libjack-jackd2-dev \
             ladspa-sdk \
             libfreetype6-dev \
-            fontconfig1-dev \
+            libfontconfig1-dev \
             libx11-dev \
             libxcomposite-dev \
             libxcursor-dev \
