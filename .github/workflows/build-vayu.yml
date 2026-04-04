@@ -139,6 +139,9 @@ jobs:
     runs-on: ubuntu-24.04
     needs: build
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
       - name: Download all build artifacts
         uses: actions/download-artifact@v5
         with:
