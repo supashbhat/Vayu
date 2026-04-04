@@ -9,6 +9,9 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build on ${{ matrix.os }}
@@ -130,3 +133,34 @@ jobs:
           name: ${{ matrix.artifact_prefix }}
           path: dist
           if-no-files-found: error
+
+  publish_release:
+    name: Publish nightly release
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: release-dist
+
+      - name: Flatten artifact files
+        shell: bash
+        run: |
+          mkdir -p upload
+          find release-dist -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec cp {} upload/ \;
+          ls -lh upload
+
+      - name: Create or update nightly release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          if gh release view nightly >/dev/null 2>&1; then
+            gh release upload nightly upload/* --clobber
+          else
+            gh release create nightly upload/* \
+              --title "Vayu Nightly" \
+              --notes "Latest automated multi-platform build of Vayu from the main branch." \
+              --prerelease
+          fi
