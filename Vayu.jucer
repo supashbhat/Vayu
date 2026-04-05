@@ -12,6 +12,9 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="pUz2KE" name="Vayu">
     <GROUP id="{792A7AE9-B5D8-FA42-CF26-6D8C15C1236A}" name="Source"/>
+    <GROUP id="{4A0CE641-8E3A-4A2C-B415-326BF534CF50}" name="Assets">
+      <FILE id="m8j3wS" name="Vayu_Icon.png" compile="0" resource="1" file="Assets/Vayu_Icon.png"/>
+    </GROUP>
     <FILE id="lDoxUR" name="PluginEditor.cpp" compile="1" resource="0"
           file="Source/PluginEditor.cpp"/>
     <FILE id="gAO2Bz" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>

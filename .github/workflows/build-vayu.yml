@@ -98,6 +98,7 @@ jobs:
           vst3_path="$(find build -type d -name 'Vayu.vst3' | head -n 1)"
           ditto -c -k --sequesterRsrc --keepParent "$au_path" "dist/Vayu-macOS-AU.zip"
           ditto -c -k --sequesterRsrc --keepParent "$vst3_path" "dist/Vayu-macOS-VST3.zip"
+          bash scripts/build_macos_installer.sh "$au_path" "$vst3_path" "dist/Vayu-macOS-Installer.pkg" "${GITHUB_RUN_NUMBER}"
 
       - name: Package Windows artifacts
         if: runner.os == 'Windows'
@@ -149,7 +150,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p upload
-          find release-dist -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec cp {} upload/ \;
+          find release-dist -type f \( -name '*.zip' -o -name '*.tar.gz' -o -name '*.pkg' \) -exec cp {} upload/ \;
           ls -lh upload
 
       - name: Create or update nightly release

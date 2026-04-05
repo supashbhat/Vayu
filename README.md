@@ -25,12 +25,22 @@ Vayu includes:
 
 Current release targets:
 
+- `Vayu-macOS-Installer.pkg`
 - `Vayu.component`
 - `Vayu.vst3`
 
 `AU` is available on macOS only. `VST3` is the plugin format used for cross-platform releases.
 
 ## Installation
+
+### macOS Recommended
+
+1. Download `Vayu-macOS-Installer.pkg`.
+2. Open the installer and follow the prompts.
+3. The installer places:
+   - `Vayu.component` in `/Library/Audio/Plug-Ins/Components`
+   - `Vayu.vst3` in `/Library/Audio/Plug-Ins/VST3`
+4. Open your DAW and run a plugin rescan if needed.
 
 ### macOS AU
 
@@ -112,6 +122,7 @@ On macOS, user presets are stored in:
 
 - Vayu is meant to be installed and used directly inside a DAW. End users do not need JUCE, Xcode, or any extra setup tools.
 - Official builds are intended to be downloaded from GitHub Releases or from the linked website download page.
+- On macOS, the installer package is the easiest way to place AU and VST3 files into the standard system plugin folders.
 - If your DAW does not show Vayu immediately after installation, run a plugin rescan.
 
 ## Official Downloads

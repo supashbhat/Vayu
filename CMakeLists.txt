@@ -26,6 +26,11 @@ if(APPLE)
     list(APPEND VAYU_FORMATS AU)
 endif()
 
+juce_add_binary_data(VayuAssets
+    SOURCES
+        Assets/Vayu_Icon.png
+)
+
 juce_add_plugin(Vayu
     COMPANY_NAME "Supash Bhat"
     COMPANY_WEBSITE "https://supashbhat.github.io"
@@ -76,6 +81,7 @@ target_compile_definitions(Vayu
 
 target_link_libraries(Vayu
     PRIVATE
+        VayuAssets
         juce::juce_audio_basics
         juce::juce_audio_devices
         juce::juce_audio_formats

@@ -1,4 +1,5 @@
 #include "PluginEditor.h"
+#include "BinaryData.h"
 
 namespace
 {
@@ -277,9 +278,11 @@ namespace
         g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 1.1f);
     }
 
-    juce::Point<float> pointWithin(juce::Rectangle<float> bounds, float x, float y)
+    const juce::Image& getVayuIconImage()
     {
-        return { bounds.getX() + (bounds.getWidth() * x), bounds.getY() + (bounds.getHeight() * y) };
+        static const auto image = juce::ImageCache::getFromMemory(BinaryData::Vayu_Icon_png,
+                                                                  BinaryData::Vayu_Icon_pngSize);
+        return image;
     }
 
     void drawVayuSigilBadge(juce::Graphics& g, juce::Rectangle<float> bounds, float phase)
@@ -290,56 +293,53 @@ namespace
         const auto badgeBounds = bounds.reduced(1.0f);
         fillGlassCard(g, badgeBounds, 12.0f, vayuAqua().withAlpha(0.38f));
 
-        juce::ColourGradient aura(vayuMint().withAlpha(0.28f),
-                                  badgeBounds.getCentreX(), badgeBounds.getCentreY() - (2.0f * std::sin(phase * 0.9f)),
+        juce::ColourGradient aura(vayuMint().withAlpha(0.24f + (0.06f * (0.5f + 0.5f * std::sin(phase * 0.22f)))),
+                                  badgeBounds.getCentreX(), badgeBounds.getCentreY() - (2.0f * std::sin(phase * 0.18f)),
                                   juce::Colour::fromRGBA(108, 255, 214, 0),
                                   badgeBounds.getCentreX(), badgeBounds.getBottom(), true);
         aura.addColour(0.52, vayuAqua().withAlpha(0.22f));
         g.setGradientFill(aura);
         g.fillRoundedRectangle(badgeBounds.reduced(2.0f), 10.0f);
 
-        juce::Path leftSpiral;
-        leftSpiral.startNewSubPath(pointWithin(badgeBounds, 0.33f, 0.28f));
-        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.12f, 0.36f),
-                           pointWithin(badgeBounds, 0.16f, 0.69f),
-                           pointWithin(badgeBounds, 0.44f, 0.70f));
-        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.62f, 0.71f),
-                           pointWithin(badgeBounds, 0.62f, 0.50f),
-                           pointWithin(badgeBounds, 0.48f, 0.44f));
-        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.38f, 0.40f),
-                           pointWithin(badgeBounds, 0.31f, 0.49f),
-                           pointWithin(badgeBounds, 0.37f, 0.56f));
+        const auto iconBounds = badgeBounds.reduced(3.5f);
+        juce::Path clipPath;
+        clipPath.addRoundedRectangle(iconBounds, 9.0f);
 
-        juce::Path rightSpiral;
-        rightSpiral.startNewSubPath(pointWithin(badgeBounds, 0.66f, 0.34f));
-        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.86f, 0.42f),
-                            pointWithin(badgeBounds, 0.80f, 0.75f),
-                            pointWithin(badgeBounds, 0.52f, 0.74f));
-        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.34f, 0.72f),
-                            pointWithin(badgeBounds, 0.34f, 0.53f),
-                            pointWithin(badgeBounds, 0.49f, 0.48f));
-        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.60f, 0.44f),
-                            pointWithin(badgeBounds, 0.67f, 0.53f),
-                            pointWithin(badgeBounds, 0.62f, 0.61f));
-
-        g.setColour(juce::Colours::white.withAlpha(0.18f));
-        g.strokePath(leftSpiral, juce::PathStrokeType(8.5f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
-        g.strokePath(rightSpiral, juce::PathStrokeType(8.5f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
-
-        juce::ColourGradient sigilGradient(vayuText(), badgeBounds.getX(), badgeBounds.getY(),
-                                           vayuAqua(), badgeBounds.getRight(), badgeBounds.getBottom(), false);
-        sigilGradient.addColour(0.46, vayuMint());
-        g.setGradientFill(sigilGradient);
-        g.strokePath(leftSpiral, juce::PathStrokeType(3.6f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
-        g.strokePath(rightSpiral, juce::PathStrokeType(3.6f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
-
-        g.setColour(juce::Colours::white.withAlpha(0.75f));
-        for (size_t i = 0; i < 5; ++i)
         {
-            const auto orbit = static_cast<float>(i) * 0.82f;
-            const auto px = badgeBounds.getCentreX() + (std::sin(phase * 1.3f + orbit) * badgeBounds.getWidth() * 0.23f);
-            const auto py = badgeBounds.getCentreY() + (std::cos(phase * 1.05f + orbit * 1.1f) * badgeBounds.getHeight() * 0.18f);
-            const auto size = 1.3f + (0.8f * (0.5f + 0.5f * std::sin(phase * 1.9f + orbit)));
+            juce::Graphics::ScopedSaveState state(g);
+            g.reduceClipRegion(clipPath);
+
+            const auto& icon = getVayuIconImage();
+            if (icon.isValid())
+                g.drawImageWithin(icon,
+                                  juce::roundToInt(iconBounds.getX()),
+                                  juce::roundToInt(iconBounds.getY()),
+                                  juce::roundToInt(iconBounds.getWidth()),
+                                  juce::roundToInt(iconBounds.getHeight()),
+                                  juce::RectanglePlacement::centred | juce::RectanglePlacement::onlyReduceInSize,
+                                  false);
+            else
+            {
+                juce::ColourGradient fallback(vayuMint(), iconBounds.getX(), iconBounds.getY(),
+                                              vayuAqua(), iconBounds.getRight(), iconBounds.getBottom(), false);
+                g.setGradientFill(fallback);
+                g.fillRoundedRectangle(iconBounds, 9.0f);
+            }
+        }
+
+        g.setColour(juce::Colours::white.withAlpha(0.12f));
+        g.drawRoundedRectangle(iconBounds, 9.0f, 1.0f);
+
+        g.setColour(vayuAqua().withAlpha(0.18f + (0.10f * (0.5f + 0.5f * std::sin(phase * 0.24f)))));
+        g.drawRoundedRectangle(badgeBounds.reduced(0.8f), 12.0f, 1.8f);
+
+        g.setColour(juce::Colours::white.withAlpha(0.72f));
+        for (size_t i = 0; i < 4; ++i)
+        {
+            const auto orbit = static_cast<float>(i) * 1.14f;
+            const auto px = badgeBounds.getCentreX() + (std::sin(phase * 0.31f + orbit) * badgeBounds.getWidth() * 0.26f);
+            const auto py = badgeBounds.getCentreY() + (std::cos(phase * 0.27f + orbit * 1.2f) * badgeBounds.getHeight() * 0.22f);
+            const auto size = 1.0f + (0.8f * (0.5f + 0.5f * std::sin(phase * 0.36f + orbit)));
             g.fillEllipse(px - size, py - size, size * 2.0f, size * 2.0f);
         }
     }
@@ -1666,7 +1666,7 @@ void VayuAudioProcessorEditor::resized()
     if (helpButton != nullptr)
         helpButton->setBounds(topBar.removeFromRight(40));
     topBar.removeFromRight(8);
-    sigilBounds = topBar.removeFromRight(38);
+    sigilBounds = topBar.removeFromRight(42);
     
     // Preset row
     auto presetRow = area.removeFromTop(50);
@@ -1768,8 +1768,9 @@ void VayuAudioProcessorEditor::refreshStatusText()
 void VayuAudioProcessorEditor::timerCallback()
 {
     animationPhase += 0.055f;
-    if (animationPhase > juce::MathConstants<float>::twoPi)
-        animationPhase -= juce::MathConstants<float>::twoPi;
+    constexpr auto animationLoopLength = juce::MathConstants<float>::twoPi * 100.0f;
+    if (animationPhase > animationLoopLength)
+        animationPhase -= animationLoopLength;
 
     undoButton.setEnabled(audioProcessor.canUndo());
     redoButton.setEnabled(audioProcessor.canRedo());
