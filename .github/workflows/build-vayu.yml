@@ -60,6 +60,12 @@ jobs:
         shell: bash
         run: git clone --depth 1 --branch 8.0.4 https://github.com/juce-framework/JUCE.git "$RUNNER_TEMP/JUCE"
 
+      - name: Install Windows packaging tools
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+
       - name: Configure CMake on macOS and Linux
         if: runner.os != 'Windows'
         shell: bash
@@ -107,6 +113,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path dist | Out-Null
           $vst3 = Get-ChildItem -Path build -Recurse -Filter "Vayu.vst3" | Select-Object -First 1
           if ($vst3) {
+            powershell -ExecutionPolicy Bypass -File scripts/build_windows_installer.ps1 -Vst3Path $vst3.FullName -OutputExe "dist/Vayu-Windows-Installer.exe" -Version "${env:GITHUB_RUN_NUMBER}"
             $stage = Join-Path $env:RUNNER_TEMP "vst3-stage"
             Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
             New-Item -ItemType Directory -Force -Path $stage | Out-Null
@@ -150,7 +157,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p upload
-          find release-dist -type f \( -name '*.zip' -o -name '*.tar.gz' -o -name '*.pkg' \) -exec cp {} upload/ \;
+          find release-dist -type f \( -name '*.zip' -o -name '*.tar.gz' -o -name '*.pkg' -o -name '*.exe' \) -exec cp {} upload/ \;
           ls -lh upload
 
       - name: Create or update nightly release

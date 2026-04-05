@@ -26,6 +26,7 @@ Vayu includes:
 Current release targets:
 
 - `Vayu-macOS-Installer.pkg`
+- `Vayu-Windows-Installer.exe`
 - `Vayu.component`
 - `Vayu.vst3`
 
@@ -66,7 +67,13 @@ For a system-wide install, use:
 
 ### Windows
 
-When a Windows release is available, install `Vayu.vst3` into:
+1. Download `Vayu-Windows-Installer.exe`.
+2. Run the installer.
+3. It places `Vayu.vst3` into:
+
+`C:\Program Files\Common Files\VST3`
+
+Manual install fallback:
 
 `C:\Program Files\Common Files\VST3`
 
@@ -123,6 +130,7 @@ On macOS, user presets are stored in:
 - Vayu is meant to be installed and used directly inside a DAW. End users do not need JUCE, Xcode, or any extra setup tools.
 - Official builds are intended to be downloaded from GitHub Releases or from the linked website download page.
 - On macOS, the installer package is the easiest way to place AU and VST3 files into the standard system plugin folders.
+- On Windows, the installer is the easiest way to place `Vayu.vst3` into the standard Steinberg VST3 location.
 - If your DAW does not show Vayu immediately after installation, run a plugin rescan.
 
 ## Official Downloads
