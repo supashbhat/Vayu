@@ -25,19 +25,34 @@ fi
 work_dir="$(mktemp -d)"
 trap 'rm -rf "$work_dir"' EXIT
 
-pkg_root="$work_dir/pkgroot"
-mkdir -p "$pkg_root/Library/Audio/Plug-Ins/Components"
-mkdir -p "$pkg_root/Library/Audio/Plug-Ins/VST3"
+au_pkg="$work_dir/Vayu-AU.pkg"
+vst3_pkg="$work_dir/Vayu-VST3.pkg"
+distribution="$work_dir/Distribution.xml"
 
-ditto "$au_path" "$pkg_root/Library/Audio/Plug-Ins/Components/$(basename "$au_path")"
-ditto "$vst3_path" "$pkg_root/Library/Audio/Plug-Ins/VST3/$(basename "$vst3_path")"
+pkgbuild \
+  --component "$au_path" \
+  --identifier "com.supash.vayu.au" \
+  --version "$version" \
+  --install-location "/Library/Audio/Plug-Ins/Components" \
+  "$au_pkg"
+
+pkgbuild \
+  --component "$vst3_path" \
+  --identifier "com.supash.vayu.vst3" \
+  --version "$version" \
+  --install-location "/Library/Audio/Plug-Ins/VST3" \
+  "$vst3_pkg"
+
+productbuild \
+  --synthesize \
+  --package "$au_pkg" \
+  --package "$vst3_pkg" \
+  "$distribution"
 
 mkdir -p "$(dirname "$output_pkg")"
-pkgbuild \
-  --root "$pkg_root" \
-  --identifier "com.supash.vayu.plugins" \
-  --version "$version" \
-  --install-location "/" \
+productbuild \
+  --distribution "$distribution" \
+  --package-path "$work_dir" \
   "$output_pkg"
 
 echo "Created installer: $output_pkg"

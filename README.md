@@ -2,13 +2,13 @@
 
 ![Vayu Icon](Assets/Vayu_Icon.png)
 
-Vayu is a modular audio effect rack for shaping movement, colour, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder effect chain, live visual feedback, rack presets, and effect presets for direct use inside a DAW.
+Vayu is a modular multi-effect plugin for movement, colour, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder rack of modulation, space, tone-shaping, and dynamics tools inside a single DAW-first interface.
 
-## What Vayu Does
+## Overview
 
 Vayu includes:
 
-- Five-band EQ
+- Five-band EQ with live curve feedback
 - Distortion
 - Chorus
 - Flanger
@@ -17,77 +17,63 @@ Vayu includes:
 - Stereo imaging
 - Reverb
 - Compressor
-- Drag-to-reorder effect chain
-- Factory and user presets
-- AU and VST3 plugin formats
+- Drag-to-reorder signal chain
+- Factory presets and user presets
 
-## Available Downloads
+## Downloads
 
-Current release targets:
+Official nightly assets are published from the main branch.
 
 - `Vayu-macOS-Installer.pkg`
 - `Vayu-Windows-Installer.exe`
-- `Vayu.component`
-- `Vayu.vst3`
-
-`AU` is available on macOS only. `VST3` is the plugin format used for cross-platform releases.
+- `Vayu-macOS-AU.zip`
+- `Vayu-macOS-VST3.zip`
+- `Vayu-Windows-VST3.zip`
+- `Vayu-Linux-VST3.tar.gz`
 
 ## Installation
 
-### macOS Recommended
+### macOS
+
+Recommended:
 
 1. Download `Vayu-macOS-Installer.pkg`.
-2. Open the installer and follow the prompts.
-3. The installer places:
-   - `Vayu.component` in `/Library/Audio/Plug-Ins/Components`
-   - `Vayu.vst3` in `/Library/Audio/Plug-Ins/VST3`
-4. Open your DAW and run a plugin rescan if needed.
+2. Run the installer.
+3. Rescan plugins in your DAW if needed.
 
-### macOS AU
+Manual paths:
 
-1. Download `Vayu.component`.
-2. Copy it to:
-   `~/Library/Audio/Plug-Ins/Components`
-3. Open your DAW and rescan plugins if needed.
+- AU: `/Library/Audio/Plug-Ins/Components`
+- VST3: `/Library/Audio/Plug-Ins/VST3`
 
-For a system-wide install, use:
+User-level alternatives:
 
-`/Library/Audio/Plug-Ins/Components`
-
-### macOS VST3
-
-1. Download `Vayu.vst3`.
-2. Copy it to:
-   `~/Library/Audio/Plug-Ins/VST3`
-3. Open your DAW and rescan plugins if needed.
-
-For a system-wide install, use:
-
-`/Library/Audio/Plug-Ins/VST3`
+- AU: `~/Library/Audio/Plug-Ins/Components`
+- VST3: `~/Library/Audio/Plug-Ins/VST3`
 
 ### Windows
 
+Recommended:
+
 1. Download `Vayu-Windows-Installer.exe`.
 2. Run the installer.
-3. It places `Vayu.vst3` into:
+3. Rescan plugins in your DAW if needed.
 
-`C:\Program Files\Common Files\VST3`
+Manual path:
 
-Manual install fallback:
-
-`C:\Program Files\Common Files\VST3`
+- VST3: `C:\Program Files\Common Files\VST3`
 
 ### Linux
 
-When a Linux release is available, install `Vayu.vst3` into one of these common locations:
+Linux releases are currently distributed as VST3 archives.
+
+Common install paths:
 
 - `~/.vst3`
 - `/usr/lib/vst3`
 - `/usr/local/lib/vst3`
 
-## Effect Rack
-
-Vayu processes audio through a serial chain of modules that can be reordered from the interface.
+## Rack Modules
 
 Current modules:
 
@@ -99,17 +85,6 @@ Current modules:
 6. Stereo
 7. Reverb
 8. Compressor
-
-## Compressor
-
-The compressor includes multiple styles for different use cases:
-
-- `Clean`
-- `Glue`
-- `Punch`
-- `Pump`
-
-It also supports sidechain-ready host routing where available.
 
 ## Presets
 
@@ -127,19 +102,14 @@ On macOS, user presets are stored in:
 
 ## Notes
 
-- Vayu is meant to be installed and used directly inside a DAW. End users do not need JUCE, Xcode, or any extra setup tools.
-- Official builds are intended to be downloaded from GitHub Releases or from the linked website download page.
-- On macOS, the installer package is the easiest way to place AU and VST3 files into the standard system plugin folders.
-- On Windows, the installer is the easiest way to place `Vayu.vst3` into the standard Steinberg VST3 location.
-- If your DAW does not show Vayu immediately after installation, run a plugin rescan.
-
-## Official Downloads
-
-Vayu is distributed for normal end-user installation through official releases. If you only want to use the plugin, download the packaged release for your operating system and install it like any other plugin.
-
-See [LICENSE](LICENSE) for the current source-availability and binary-use notice.
+- Vayu is intended to be downloaded and installed directly into a DAW workflow.
+- End users do not need JUCE, Xcode, CMake, or any developer tooling.
+- If your DAW does not show Vayu immediately, run a plugin rescan.
+- Official downloads are provided through GitHub Releases and the Vayu landing page.
 
 ## Links
 
-- GitHub: [github.com/supashbhat/vayu](https://github.com/supashbhat/vayu)
-- Portfolio: [supashbhat.github.io](https://supashbhat.github.io/)
+- Website: [supashbhat.github.io/vayu.html](https://supashbhat.github.io/vayu.html)
+- GitHub: [github.com/supashbhat/Vayu](https://github.com/supashbhat/Vayu)
+
+See [LICENSE](LICENSE) for the current source-availability and binary-use notice.
