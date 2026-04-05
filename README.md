@@ -2,7 +2,7 @@
 
 ![Vayu Icon](Assets/Vayu_Icon.png)
 
-Vayu is a modular multi-effect plugin for movement, colour, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder rack of modulation, space, tone-shaping, and dynamics tools inside a single DAW-first interface.
+Vayu is a modular multi-effect plugin for movement, color, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder rack of modulation, space, tone-shaping, and dynamics tools inside a single DAW-first interface.
 
 ## Overview
 

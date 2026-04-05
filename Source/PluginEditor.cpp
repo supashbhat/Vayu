@@ -1409,7 +1409,7 @@ VayuAudioProcessorEditor::VayuAudioProcessorEditor(VayuAudioProcessor& processor
     titleLabel.setColour(juce::Label::textColourId, vayuText());
     addAndMakeVisible(titleLabel);
     
-    subtitleLabel.setText("Aerodynamic EQ rack for motion, colour, and atmosphere", juce::dontSendNotification);
+    subtitleLabel.setText("Aerodynamic EQ rack for motion, color, and atmosphere", juce::dontSendNotification);
     subtitleLabel.setFont(makeFont(12.0f));
     subtitleLabel.setColour(juce::Label::textColourId, vayuTextSoft());
     addAndMakeVisible(subtitleLabel);
