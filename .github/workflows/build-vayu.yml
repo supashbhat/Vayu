@@ -87,17 +87,15 @@ jobs:
       - name: List build outputs
         shell: bash
         run: |
-          find build -maxdepth 5 \( -name 'Vayu.app' -o -name 'Vayu.component' -o -name 'Vayu.vst3' -o -name 'Vayu.exe' -o -name 'Vayu' \) -print || true
+          find build -maxdepth 5 \( -name 'Vayu.component' -o -name 'Vayu.vst3' \) -print || true
 
       - name: Package macOS artifacts
         if: runner.os == 'macOS'
         shell: bash
         run: |
           mkdir -p dist
-          app_path="$(find build -type d -name 'Vayu.app' | head -n 1)"
           au_path="$(find build -type d -name 'Vayu.component' | head -n 1)"
           vst3_path="$(find build -type d -name 'Vayu.vst3' | head -n 1)"
-          ditto -c -k --sequesterRsrc --keepParent "$app_path" "dist/Vayu-macOS-Standalone.zip"
           ditto -c -k --sequesterRsrc --keepParent "$au_path" "dist/Vayu-macOS-AU.zip"
           ditto -c -k --sequesterRsrc --keepParent "$vst3_path" "dist/Vayu-macOS-VST3.zip"
 
@@ -106,10 +104,14 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
-          $standalone = Get-ChildItem -Path build -Recurse -Filter "Vayu.exe" | Select-Object -First 1
           $vst3 = Get-ChildItem -Path build -Recurse -Filter "Vayu.vst3" | Select-Object -First 1
-          if ($standalone) { Compress-Archive -Path $standalone.FullName -DestinationPath "dist/Vayu-Windows-Standalone.zip" -Force }
-          if ($vst3) { Compress-Archive -Path $vst3.FullName -DestinationPath "dist/Vayu-Windows-VST3.zip" -Force }
+          if ($vst3) {
+            $stage = Join-Path $env:RUNNER_TEMP "vst3-stage"
+            Remove-Item -Recurse -Force $stage -ErrorAction SilentlyContinue
+            New-Item -ItemType Directory -Force -Path $stage | Out-Null
+            Copy-Item -Recurse $vst3.FullName $stage
+            Compress-Archive -Path (Join-Path $stage "Vayu.vst3") -DestinationPath "dist/Vayu-Windows-VST3.zip" -Force
+          }
           Get-ChildItem -Path dist
 
       - name: Package Linux artifacts
@@ -117,11 +119,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p dist
-          standalone_path="$(find build -type f -name 'Vayu' | head -n 1)"
           vst3_path="$(find build -type d -name 'Vayu.vst3' | head -n 1)"
-          if [ -n "$standalone_path" ]; then
-            tar -czf "dist/Vayu-Linux-Standalone.tar.gz" -C "$(dirname "$standalone_path")" "$(basename "$standalone_path")"
-          fi
           if [ -n "$vst3_path" ]; then
             tar -czf "dist/Vayu-Linux-VST3.tar.gz" -C "$(dirname "$vst3_path")" "$(basename "$vst3_path")"
           fi
@@ -160,10 +158,13 @@ jobs:
         shell: bash
         run: |
           if gh release view nightly >/dev/null 2>&1; then
+            gh release delete-asset nightly Vayu-macOS-Standalone.zip --yes >/dev/null 2>&1 || true
+            gh release delete-asset nightly Vayu-Windows-Standalone.zip --yes >/dev/null 2>&1 || true
+            gh release delete-asset nightly Vayu-Linux-Standalone.tar.gz --yes >/dev/null 2>&1 || true
             gh release upload nightly upload/* --clobber
           else
             gh release create nightly upload/* \
               --title "Vayu Nightly" \
-              --notes "Latest automated multi-platform build of Vayu from the main branch." \
+              --notes "Latest automated multi-platform plugin build of Vayu from the main branch." \
               --prerelease
           fi

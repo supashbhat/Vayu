@@ -2,7 +2,7 @@
 
 ![Vayu Icon](Assets/Vayu_Icon.png)
 
-Vayu is a modular audio effect rack for shaping movement, colour, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder effect chain, live visual feedback, rack presets, effect presets, and a dedicated standalone app.
+Vayu is a modular audio effect rack for shaping movement, colour, width, and atmosphere. It combines a five-band EQ with a drag-to-reorder effect chain, live visual feedback, rack presets, and effect presets for direct use inside a DAW.
 
 ## What Vayu Does
 
@@ -19,26 +19,18 @@ Vayu includes:
 - Compressor
 - Drag-to-reorder effect chain
 - Factory and user presets
-- Standalone app
 - AU and VST3 plugin formats
 
 ## Available Downloads
 
 Current release targets:
 
-- `Vayu.app`
 - `Vayu.component`
 - `Vayu.vst3`
 
 `AU` is available on macOS only. `VST3` is the plugin format used for cross-platform releases.
 
 ## Installation
-
-### macOS Standalone
-
-1. Download `Vayu.app`.
-2. Move it into `/Applications` or any folder you prefer.
-3. Open the app and choose your audio device in the standalone audio settings.
 
 ### macOS AU
 
@@ -68,8 +60,6 @@ When a Windows release is available, install `Vayu.vst3` into:
 
 `C:\Program Files\Common Files\VST3`
 
-If a standalone Windows app is included in a release, it can be placed anywhere you want or bundled in an installer.
-
 ### Linux
 
 When a Linux release is available, install `Vayu.vst3` into one of these common locations:
@@ -77,8 +67,6 @@ When a Linux release is available, install `Vayu.vst3` into one of these common 
 - `~/.vst3`
 - `/usr/lib/vst3`
 - `/usr/local/lib/vst3`
-
-If a standalone Linux build is included in a release, it can be launched directly or distributed in an archive package.
 
 ## Effect Rack
 
@@ -122,13 +110,13 @@ On macOS, user presets are stored in:
 
 ## Notes
 
-- Vayu is meant to be installed and used directly. End users do not need JUCE, Xcode, or any extra setup tools.
+- Vayu is meant to be installed and used directly inside a DAW. End users do not need JUCE, Xcode, or any extra setup tools.
 - Official builds are intended to be downloaded from GitHub Releases or from the linked website download page.
 - If your DAW does not show Vayu immediately after installation, run a plugin rescan.
 
 ## Official Downloads
 
-Vayu is distributed for normal end-user installation through official releases. If you only want to use the plugin, download the packaged release for your operating system and install it like any other plugin or desktop app.
+Vayu is distributed for normal end-user installation through official releases. If you only want to use the plugin, download the packaged release for your operating system and install it like any other plugin.
 
 See [LICENSE](LICENSE) for the current source-availability and binary-use notice.
 
