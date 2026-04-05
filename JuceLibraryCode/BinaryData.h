@@ -9,7 +9,7 @@
 namespace BinaryData
 {
     extern const char*   Vayu_Icon_png;
-    const int            Vayu_Icon_pngSize = 1872489;
+    const int            Vayu_Icon_pngSize = 1588669;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 1;
