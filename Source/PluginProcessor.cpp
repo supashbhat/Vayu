@@ -5,7 +5,7 @@ namespace
 {
     using Parameter = juce::AudioParameterFloat;
 
-    constexpr auto stateId = "AudioEQState";
+    constexpr auto stateId = "VayuState";
     constexpr auto selectedPresetProperty = "selectedPreset";
     constexpr auto selectedRackPresetProperty = "selectedRackPreset";
     constexpr auto effectOrderPropertyPrefix = "effectOrder";
@@ -290,7 +290,7 @@ namespace
         std::array<std::pair<const char*, float>, 5> values;
     };
 
-    const auto& getEffectPresetDefinitions(AudioEQAudioProcessor::EffectSlot effectSlot)
+    const auto& getEffectPresetDefinitions(VayuAudioProcessor::EffectSlot effectSlot)
     {
         static const std::array<EffectPreset, 4> distortionPresets{{
             { "Warm Tape", {{{ distortionEnabledId, 1.0f }, { distortionModeId, 0.0f }, { distortionDriveId, 10.0f }, { distortionToneId, 0.48f }, { distortionMixId, 0.38f }}} },
@@ -343,46 +343,46 @@ namespace
 
         switch (effectSlot)
         {
-            case AudioEQAudioProcessor::EffectSlot::distortion: return distortionPresets;
-            case AudioEQAudioProcessor::EffectSlot::chorus: return chorusPresets;
-            case AudioEQAudioProcessor::EffectSlot::flanger: return flangerPresets;
-            case AudioEQAudioProcessor::EffectSlot::phaser: return phaserPresets;
-            case AudioEQAudioProcessor::EffectSlot::delay: return delayPresets;
-            case AudioEQAudioProcessor::EffectSlot::stereo: return stereoPresets;
-            case AudioEQAudioProcessor::EffectSlot::reverb: return reverbPresets;
-            case AudioEQAudioProcessor::EffectSlot::compressor: return compressorPresets;
+            case VayuAudioProcessor::EffectSlot::distortion: return distortionPresets;
+            case VayuAudioProcessor::EffectSlot::chorus: return chorusPresets;
+            case VayuAudioProcessor::EffectSlot::flanger: return flangerPresets;
+            case VayuAudioProcessor::EffectSlot::phaser: return phaserPresets;
+            case VayuAudioProcessor::EffectSlot::delay: return delayPresets;
+            case VayuAudioProcessor::EffectSlot::stereo: return stereoPresets;
+            case VayuAudioProcessor::EffectSlot::reverb: return reverbPresets;
+            case VayuAudioProcessor::EffectSlot::compressor: return compressorPresets;
         }
         return distortionPresets;
     }
 
-    std::array<const char*, 5> getEffectParameterIds(AudioEQAudioProcessor::EffectSlot effectSlot)
+    std::array<const char*, 5> getEffectParameterIds(VayuAudioProcessor::EffectSlot effectSlot)
     {
         switch (effectSlot)
         {
-            case AudioEQAudioProcessor::EffectSlot::distortion: return { distortionEnabledId, distortionModeId, distortionDriveId, distortionToneId, distortionMixId };
-            case AudioEQAudioProcessor::EffectSlot::chorus: return { chorusEnabledId, chorusModeId, chorusRateId, chorusDepthId, chorusMixId };
-            case AudioEQAudioProcessor::EffectSlot::flanger: return { flangerEnabledId, flangerModeId, flangerRateId, flangerDepthId, flangerMixId };
-            case AudioEQAudioProcessor::EffectSlot::phaser: return { phaserEnabledId, phaserModeId, phaserRateId, phaserDepthId, phaserMixId };
-            case AudioEQAudioProcessor::EffectSlot::delay: return { delayEnabledId, delayModeId, delayTimeId, delayFeedbackId, delayMixId };
-            case AudioEQAudioProcessor::EffectSlot::stereo: return { stereoEnabledId, stereoModeId, stereoRateId, stereoDepthId, stereoMixId };
-            case AudioEQAudioProcessor::EffectSlot::reverb: return { reverbEnabledId, reverbModeId, reverbSizeId, reverbDampingId, reverbMixId };
-            case AudioEQAudioProcessor::EffectSlot::compressor: return { compressorEnabledId, compressorModeId, compressorThresholdId, compressorAmountId, compressorMixId };
+            case VayuAudioProcessor::EffectSlot::distortion: return { distortionEnabledId, distortionModeId, distortionDriveId, distortionToneId, distortionMixId };
+            case VayuAudioProcessor::EffectSlot::chorus: return { chorusEnabledId, chorusModeId, chorusRateId, chorusDepthId, chorusMixId };
+            case VayuAudioProcessor::EffectSlot::flanger: return { flangerEnabledId, flangerModeId, flangerRateId, flangerDepthId, flangerMixId };
+            case VayuAudioProcessor::EffectSlot::phaser: return { phaserEnabledId, phaserModeId, phaserRateId, phaserDepthId, phaserMixId };
+            case VayuAudioProcessor::EffectSlot::delay: return { delayEnabledId, delayModeId, delayTimeId, delayFeedbackId, delayMixId };
+            case VayuAudioProcessor::EffectSlot::stereo: return { stereoEnabledId, stereoModeId, stereoRateId, stereoDepthId, stereoMixId };
+            case VayuAudioProcessor::EffectSlot::reverb: return { reverbEnabledId, reverbModeId, reverbSizeId, reverbDampingId, reverbMixId };
+            case VayuAudioProcessor::EffectSlot::compressor: return { compressorEnabledId, compressorModeId, compressorThresholdId, compressorAmountId, compressorMixId };
         }
         return { distortionEnabledId, distortionModeId, distortionDriveId, distortionToneId, distortionMixId };
     }
 
-    juce::String getEffectFolderName(AudioEQAudioProcessor::EffectSlot effectSlot)
+    juce::String getEffectFolderName(VayuAudioProcessor::EffectSlot effectSlot)
     {
         switch (effectSlot)
         {
-            case AudioEQAudioProcessor::EffectSlot::distortion: return "Distortion";
-            case AudioEQAudioProcessor::EffectSlot::chorus: return "Chorus";
-            case AudioEQAudioProcessor::EffectSlot::flanger: return "Flanger";
-            case AudioEQAudioProcessor::EffectSlot::phaser: return "Phaser";
-            case AudioEQAudioProcessor::EffectSlot::delay: return "Delay";
-            case AudioEQAudioProcessor::EffectSlot::stereo: return "Stereo";
-            case AudioEQAudioProcessor::EffectSlot::reverb: return "Reverb";
-            case AudioEQAudioProcessor::EffectSlot::compressor: return "Compressor";
+            case VayuAudioProcessor::EffectSlot::distortion: return "Distortion";
+            case VayuAudioProcessor::EffectSlot::chorus: return "Chorus";
+            case VayuAudioProcessor::EffectSlot::flanger: return "Flanger";
+            case VayuAudioProcessor::EffectSlot::phaser: return "Phaser";
+            case VayuAudioProcessor::EffectSlot::delay: return "Delay";
+            case VayuAudioProcessor::EffectSlot::stereo: return "Stereo";
+            case VayuAudioProcessor::EffectSlot::reverb: return "Reverb";
+            case VayuAudioProcessor::EffectSlot::compressor: return "Compressor";
         }
         return "Effect";
     }
@@ -492,7 +492,7 @@ namespace
 #endif
 }
 
-AudioEQAudioProcessor::AudioEQAudioProcessor()
+VayuAudioProcessor::VayuAudioProcessor()
     : AudioProcessor(BusesProperties().withInput("Input", juce::AudioChannelSet::stereo(), true)
                                       .withInput("Sidechain", juce::AudioChannelSet::stereo(), false)
                                       .withOutput("Output", juce::AudioChannelSet::stereo(), true)),
@@ -510,14 +510,14 @@ AudioEQAudioProcessor::AudioEQAudioProcessor()
     applyPreset(0);
 }
 
-AudioEQAudioProcessor::~AudioEQAudioProcessor()
+VayuAudioProcessor::~VayuAudioProcessor()
 {
     for (const auto* parameterId : parameterIds)
         parameters.removeParameterListener(parameterId, this);
 }
 
 // Thread-safe getter/setter for effect order
-void AudioEQAudioProcessor::setEffectOrder(const std::array<int, effectCount>& newOrder)
+void VayuAudioProcessor::setEffectOrder(const std::array<int, effectCount>& newOrder)
 {
     const auto sanitisedOrder = sanitiseEffectOrder(newOrder);
     for (int i = 0; i < static_cast<int>(effectCount); ++i)
@@ -526,7 +526,7 @@ void AudioEQAudioProcessor::setEffectOrder(const std::array<int, effectCount>& n
     writeEffectOrderToState(parameters.state, sanitisedOrder);
 }
 
-std::array<int, AudioEQAudioProcessor::effectCount> AudioEQAudioProcessor::getEffectOrder() const
+std::array<int, VayuAudioProcessor::effectCount> VayuAudioProcessor::getEffectOrder() const
 {
     std::array<int, effectCount> result;
     for (int i = 0; i < static_cast<int>(effectCount); ++i)
@@ -534,7 +534,7 @@ std::array<int, AudioEQAudioProcessor::effectCount> AudioEQAudioProcessor::getEf
     return result;
 }
 
-juce::AudioProcessorValueTreeState::ParameterLayout AudioEQAudioProcessor::createParameterLayout()
+juce::AudioProcessorValueTreeState::ParameterLayout VayuAudioProcessor::createParameterLayout()
 {
     std::vector<std::unique_ptr<juce::RangedAudioParameter>> layout;
 
@@ -611,7 +611,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioEQAudioProcessor::creat
     return { layout.begin(), layout.end() };
 }
 
-void AudioEQAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
+void VayuAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 {
     currentSampleRate = sampleRate;
     processingStateNeedsUpdate.store(true);
@@ -671,11 +671,11 @@ void AudioEQAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock
     updateProcessingState();
 }
 
-void AudioEQAudioProcessor::releaseResources()
+void VayuAudioProcessor::releaseResources()
 {
 }
 
-bool AudioEQAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+bool VayuAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     const auto mainInput = layouts.getMainInputChannelSet();
     const auto mainOutput = layouts.getMainOutputChannelSet();
@@ -698,7 +698,7 @@ bool AudioEQAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) c
 }
 
 // Master effect processor that respects the modular order
-void AudioEQAudioProcessor::processEffectsInOrder(juce::AudioBuffer<float>& buffer,
+void VayuAudioProcessor::processEffectsInOrder(juce::AudioBuffer<float>& buffer,
                                                   int channelCount,
                                                   const juce::AudioBuffer<float>* sidechainBuffer)
 {
@@ -748,7 +748,7 @@ void AudioEQAudioProcessor::processEffectsInOrder(juce::AudioBuffer<float>& buff
     }
 }
 
-void AudioEQAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void VayuAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ignoreUnused(midiMessages);
     juce::ScopedNoDenormals noDenormals;
@@ -821,37 +821,37 @@ void AudioEQAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce:
     }
 }
 
-juce::AudioProcessorEditor* AudioEQAudioProcessor::createEditor()
+juce::AudioProcessorEditor* VayuAudioProcessor::createEditor()
 {
-    return new AudioEQAudioProcessorEditor(*this);
+    return new VayuAudioProcessorEditor(*this);
 }
 
-bool AudioEQAudioProcessor::hasEditor() const
+bool VayuAudioProcessor::hasEditor() const
 {
     return true;
 }
 
-const juce::String AudioEQAudioProcessor::getName() const
+const juce::String VayuAudioProcessor::getName() const
 {
     return "Vayu";
 }
 
-bool AudioEQAudioProcessor::acceptsMidi() const
+bool VayuAudioProcessor::acceptsMidi() const
 {
     return false;
 }
 
-bool AudioEQAudioProcessor::producesMidi() const
+bool VayuAudioProcessor::producesMidi() const
 {
     return false;
 }
 
-bool AudioEQAudioProcessor::isMidiEffect() const
+bool VayuAudioProcessor::isMidiEffect() const
 {
     return false;
 }
 
-double AudioEQAudioProcessor::getTailLengthSeconds() const
+double VayuAudioProcessor::getTailLengthSeconds() const
 {
     const auto delayEnabled = getParameterValue(parameters, delayEnabledId) > 0.5f;
     const auto reverbEnabled = getParameterValue(parameters, reverbEnabledId) > 0.5f;
@@ -865,22 +865,22 @@ double AudioEQAudioProcessor::getTailLengthSeconds() const
     return tailSeconds;
 }
 
-int AudioEQAudioProcessor::getNumPrograms()
+int VayuAudioProcessor::getNumPrograms()
 {
     return static_cast<int>(getPresetDefinitions().size());
 }
 
-int AudioEQAudioProcessor::getCurrentProgram()
+int VayuAudioProcessor::getCurrentProgram()
 {
     return currentPresetIndex;
 }
 
-void AudioEQAudioProcessor::setCurrentProgram(int index)
+void VayuAudioProcessor::setCurrentProgram(int index)
 {
     applyPreset(index);
 }
 
-const juce::String AudioEQAudioProcessor::getProgramName(int index)
+const juce::String VayuAudioProcessor::getProgramName(int index)
 {
     const auto presets = getPresetNames();
     if (juce::isPositiveAndBelow(index, presets.size()))
@@ -888,12 +888,12 @@ const juce::String AudioEQAudioProcessor::getProgramName(int index)
     return {};
 }
 
-void AudioEQAudioProcessor::changeProgramName(int index, const juce::String& newName)
+void VayuAudioProcessor::changeProgramName(int index, const juce::String& newName)
 {
     juce::ignoreUnused(index, newName);
 }
 
-void AudioEQAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
+void VayuAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
 {
     auto state = parameters.copyState();
     state.setProperty(selectedPresetProperty, currentPresetIndex, nullptr);
@@ -904,7 +904,7 @@ void AudioEQAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
         copyXmlToBinary(*xml, destData);
 }
 
-void AudioEQAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
+void VayuAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
     if (auto xml = getXmlFromBinary(data, sizeInBytes))
     {
@@ -920,7 +920,7 @@ void AudioEQAudioProcessor::setStateInformation(const void* data, int sizeInByte
     updateProcessingState();
 }
 
-void AudioEQAudioProcessor::applyPreset(int presetIndex)
+void VayuAudioProcessor::applyPreset(int presetIndex)
 {
     const auto& presets = getPresetDefinitions();
     const auto clampedIndex = juce::jlimit(0, static_cast<int>(presets.size()) - 1, presetIndex);
@@ -956,22 +956,22 @@ void AudioEQAudioProcessor::applyPreset(int presetIndex)
     updateProcessingState();
 }
 
-int AudioEQAudioProcessor::getCurrentPresetIndex() const noexcept
+int VayuAudioProcessor::getCurrentPresetIndex() const noexcept
 {
     return currentPresetIndex;
 }
 
-juce::StringArray AudioEQAudioProcessor::getPresetNames() const
+juce::StringArray VayuAudioProcessor::getPresetNames() const
 {
     return buildPresetNames();
 }
 
-juce::StringArray AudioEQAudioProcessor::getRackPresetNames() const
+juce::StringArray VayuAudioProcessor::getRackPresetNames() const
 {
     return buildRackPresetNames();
 }
 
-void AudioEQAudioProcessor::applyRackPreset(int presetIndex)
+void VayuAudioProcessor::applyRackPreset(int presetIndex)
 {
     const auto& presets = getRackPresetDefinitions();
     const auto clampedIndex = juce::jlimit(0, static_cast<int>(presets.size()) - 1, presetIndex);
@@ -1024,12 +1024,12 @@ void AudioEQAudioProcessor::applyRackPreset(int presetIndex)
     updateProcessingState();
 }
 
-int AudioEQAudioProcessor::getCurrentRackPresetIndex() const noexcept
+int VayuAudioProcessor::getCurrentRackPresetIndex() const noexcept
 {
     return currentRackPresetIndex;
 }
 
-juce::StringArray AudioEQAudioProcessor::getEffectPresetNames(EffectSlot effectSlot) const
+juce::StringArray VayuAudioProcessor::getEffectPresetNames(EffectSlot effectSlot) const
 {
     juce::StringArray names;
     for (const auto& preset : getEffectPresetDefinitions(effectSlot))
@@ -1037,7 +1037,7 @@ juce::StringArray AudioEQAudioProcessor::getEffectPresetNames(EffectSlot effectS
     return names;
 }
 
-void AudioEQAudioProcessor::applyEffectPreset(EffectSlot effectSlot, int presetIndex)
+void VayuAudioProcessor::applyEffectPreset(EffectSlot effectSlot, int presetIndex)
 {
     const auto& presets = getEffectPresetDefinitions(effectSlot);
     const auto clampedIndex = juce::jlimit(0, static_cast<int>(presets.size()) - 1, presetIndex);
@@ -1049,7 +1049,7 @@ void AudioEQAudioProcessor::applyEffectPreset(EffectSlot effectSlot, int presetI
     updateProcessingState();
 }
 
-juce::StringArray AudioEQAudioProcessor::getUserRackPresetNames() const
+juce::StringArray VayuAudioProcessor::getUserRackPresetNames() const
 {
     juce::StringArray names;
     const auto directory = getUserRackPresetDirectory();
@@ -1061,7 +1061,7 @@ juce::StringArray AudioEQAudioProcessor::getUserRackPresetNames() const
     return names;
 }
 
-bool AudioEQAudioProcessor::saveUserRackPreset(const juce::String& presetName)
+bool VayuAudioProcessor::saveUserRackPreset(const juce::String& presetName)
 {
     const auto trimmedName = presetName.trim();
     if (trimmedName.isEmpty())
@@ -1082,7 +1082,7 @@ bool AudioEQAudioProcessor::saveUserRackPreset(const juce::String& presetName)
     return false;
 }
 
-bool AudioEQAudioProcessor::loadUserRackPreset(const juce::String& presetName)
+bool VayuAudioProcessor::loadUserRackPreset(const juce::String& presetName)
 {
     const auto file = getUserRackPresetDirectory().getChildFile(presetName + ".vayu-rack");
     if (!file.existsAsFile())
@@ -1105,7 +1105,7 @@ bool AudioEQAudioProcessor::loadUserRackPreset(const juce::String& presetName)
     return true;
 }
 
-bool AudioEQAudioProcessor::deleteUserRackPreset(const juce::String& presetName)
+bool VayuAudioProcessor::deleteUserRackPreset(const juce::String& presetName)
 {
     const auto trimmedName = presetName.trim();
     if (trimmedName.isEmpty())
@@ -1119,7 +1119,7 @@ bool AudioEQAudioProcessor::deleteUserRackPreset(const juce::String& presetName)
     return file.deleteFile();
 }
 
-juce::StringArray AudioEQAudioProcessor::getUserEffectPresetNames(EffectSlot effectSlot) const
+juce::StringArray VayuAudioProcessor::getUserEffectPresetNames(EffectSlot effectSlot) const
 {
     juce::StringArray names;
     const auto directory = getUserEffectPresetDirectory(effectSlot);
@@ -1131,7 +1131,7 @@ juce::StringArray AudioEQAudioProcessor::getUserEffectPresetNames(EffectSlot eff
     return names;
 }
 
-bool AudioEQAudioProcessor::saveUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
+bool VayuAudioProcessor::saveUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
 {
     const auto trimmedName = presetName.trim();
     if (trimmedName.isEmpty())
@@ -1152,7 +1152,7 @@ bool AudioEQAudioProcessor::saveUserEffectPreset(EffectSlot effectSlot, const ju
     return false;
 }
 
-bool AudioEQAudioProcessor::loadUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
+bool VayuAudioProcessor::loadUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
 {
     const auto file = getUserEffectPresetDirectory(effectSlot).getChildFile(presetName + ".vayu-effect");
     if (!file.existsAsFile())
@@ -1177,7 +1177,7 @@ bool AudioEQAudioProcessor::loadUserEffectPreset(EffectSlot effectSlot, const ju
     return true;
 }
 
-bool AudioEQAudioProcessor::deleteUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
+bool VayuAudioProcessor::deleteUserEffectPreset(EffectSlot effectSlot, const juce::String& presetName)
 {
     const auto trimmedName = presetName.trim();
     if (trimmedName.isEmpty())
@@ -1191,7 +1191,7 @@ bool AudioEQAudioProcessor::deleteUserEffectPreset(EffectSlot effectSlot, const 
     return file.deleteFile();
 }
 
-float AudioEQAudioProcessor::getMagnitudeResponseAtFrequency(double frequency) const
+float VayuAudioProcessor::getMagnitudeResponseAtFrequency(double frequency) const
 {
     const auto sampleRate = currentSampleRate > 0.0 ? currentSampleRate : 44100.0;
     const juce::SpinLock::ScopedLockType lock(responseCurveLock);
@@ -1207,53 +1207,53 @@ float AudioEQAudioProcessor::getMagnitudeResponseAtFrequency(double frequency) c
     return static_cast<float>(magnitude);
 }
 
-float AudioEQAudioProcessor::getInputLevel() const noexcept
+float VayuAudioProcessor::getInputLevel() const noexcept
 {
     return inputLevel.load();
 }
 
-float AudioEQAudioProcessor::getOutputLevel() const noexcept
+float VayuAudioProcessor::getOutputLevel() const noexcept
 {
     return outputLevel.load();
 }
 
-float AudioEQAudioProcessor::getCompressorGainReductionDb() const noexcept
+float VayuAudioProcessor::getCompressorGainReductionDb() const noexcept
 {
     return compressorGainReductionDb.load();
 }
 
-bool AudioEQAudioProcessor::canUndo() const noexcept
+bool VayuAudioProcessor::canUndo() const noexcept
 {
     return undoManager.canUndo();
 }
 
-bool AudioEQAudioProcessor::canRedo() const noexcept
+bool VayuAudioProcessor::canRedo() const noexcept
 {
     return undoManager.canRedo();
 }
 
-void AudioEQAudioProcessor::undoLastAction()
+void VayuAudioProcessor::undoLastAction()
 {
     undoManager.undo();
 }
 
-void AudioEQAudioProcessor::redoLastAction()
+void VayuAudioProcessor::redoLastAction()
 {
     undoManager.redo();
 }
 
-double AudioEQAudioProcessor::getCurrentSampleRateValue() const noexcept
+double VayuAudioProcessor::getCurrentSampleRateValue() const noexcept
 {
     return currentSampleRate;
 }
 
-void AudioEQAudioProcessor::copySpectrumData(std::array<float, 128>& destination) const
+void VayuAudioProcessor::copySpectrumData(std::array<float, 128>& destination) const
 {
     const juce::SpinLock::ScopedLockType lock(analyserLock);
     destination = spectrumData;
 }
 
-float AudioEQAudioProcessor::getParameterValue(const juce::AudioProcessorValueTreeState& state,
+float VayuAudioProcessor::getParameterValue(const juce::AudioProcessorValueTreeState& state,
                                                const juce::String& parameterId)
 {
     if (auto* value = state.getRawParameterValue(parameterId))
@@ -1262,7 +1262,7 @@ float AudioEQAudioProcessor::getParameterValue(const juce::AudioProcessorValueTr
     return 0.0f;
 }
 
-void AudioEQAudioProcessor::setParameterValue(juce::AudioProcessorValueTreeState& state,
+void VayuAudioProcessor::setParameterValue(juce::AudioProcessorValueTreeState& state,
                                               const juce::String& parameterId,
                                               float newValue)
 {
@@ -1274,7 +1274,7 @@ void AudioEQAudioProcessor::setParameterValue(juce::AudioProcessorValueTreeState
     }
 }
 
-juce::File AudioEQAudioProcessor::getUserPresetRootDirectory()
+juce::File VayuAudioProcessor::getUserPresetRootDirectory()
 {
     auto directory = juce::File::getSpecialLocation(juce::File::userApplicationDataDirectory)
                          .getChildFile("Vayu")
@@ -1283,21 +1283,21 @@ juce::File AudioEQAudioProcessor::getUserPresetRootDirectory()
     return directory;
 }
 
-juce::File AudioEQAudioProcessor::getUserRackPresetDirectory()
+juce::File VayuAudioProcessor::getUserRackPresetDirectory()
 {
     auto directory = getUserPresetRootDirectory().getChildFile("Rack");
     directory.createDirectory();
     return directory;
 }
 
-juce::File AudioEQAudioProcessor::getUserEffectPresetDirectory(EffectSlot effectSlot)
+juce::File VayuAudioProcessor::getUserEffectPresetDirectory(EffectSlot effectSlot)
 {
     auto directory = getUserPresetRootDirectory().getChildFile("Effects").getChildFile(getEffectFolderName(effectSlot));
     directory.createDirectory();
     return directory;
 }
 
-void AudioEQAudioProcessor::updateProcessingState()
+void VayuAudioProcessor::updateProcessingState()
 {
     if (!processingStateNeedsUpdate.exchange(false))
         return;
@@ -1403,13 +1403,13 @@ void AudioEQAudioProcessor::updateProcessingState()
     responseOutputGain = outputGain;
 }
 
-void AudioEQAudioProcessor::parameterChanged(const juce::String& parameterId, float newValue)
+void VayuAudioProcessor::parameterChanged(const juce::String& parameterId, float newValue)
 {
     juce::ignoreUnused(parameterId, newValue);
     processingStateNeedsUpdate.store(true);
 }
 
-float AudioEQAudioProcessor::measurePeakLevel(const juce::AudioBuffer<float>& buffer, int channelCount)
+float VayuAudioProcessor::measurePeakLevel(const juce::AudioBuffer<float>& buffer, int channelCount)
 {
     auto peak = 0.0f;
     for (auto channel = 0; channel < channelCount; ++channel)
@@ -1417,7 +1417,7 @@ float AudioEQAudioProcessor::measurePeakLevel(const juce::AudioBuffer<float>& bu
     return peak;
 }
 
-void AudioEQAudioProcessor::pushNextAnalyserSample(float sample) noexcept
+void VayuAudioProcessor::pushNextAnalyserSample(float sample) noexcept
 {
     if (analyserFifoIndex == fftSize)
     {
@@ -1428,7 +1428,7 @@ void AudioEQAudioProcessor::pushNextAnalyserSample(float sample) noexcept
     analyserFifo[static_cast<size_t>(analyserFifoIndex++)] = sample;
 }
 
-void AudioEQAudioProcessor::generateSpectrumData()
+void VayuAudioProcessor::generateSpectrumData()
 {
     analyserWindow.multiplyWithWindowingTable(analyserData.data(), fftSize);
     std::fill(analyserData.begin() + fftSize, analyserData.end(), 0.0f);
@@ -1455,7 +1455,7 @@ void AudioEQAudioProcessor::generateSpectrumData()
         spectrumData[i] = juce::jmax(nextSpectrum[i], spectrumData[i] * 0.82f);
 }
 
-void AudioEQAudioProcessor::processDistortion(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processDistortion(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     const auto driveDb = getParameterValue(parameters, distortionDriveId);
     const auto tone = getParameterValue(parameters, distortionToneId);
@@ -1498,7 +1498,7 @@ void AudioEQAudioProcessor::processDistortion(juce::AudioBuffer<float>& buffer, 
     }
 }
 
-void AudioEQAudioProcessor::processChorus(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processChorus(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0 || chorusDelayBuffers[0].empty() || currentSampleRate <= 0.0)
         return;
@@ -1568,7 +1568,7 @@ void AudioEQAudioProcessor::processChorus(juce::AudioBuffer<float>& buffer, int 
     blendModulationToStereo(buffer, modulationScratchBuffer, channelCount, wetAmount, width);
 }
 
-void AudioEQAudioProcessor::processFlanger(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processFlanger(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0)
         return;
@@ -1618,7 +1618,7 @@ void AudioEQAudioProcessor::processFlanger(juce::AudioBuffer<float>& buffer, int
     }
 }
 
-void AudioEQAudioProcessor::processPhaser(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processPhaser(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0 || currentSampleRate <= 0.0)
         return;
@@ -1674,7 +1674,7 @@ void AudioEQAudioProcessor::processPhaser(juce::AudioBuffer<float>& buffer, int 
                             (mode == 2 ? 0.24f : (mode == 1 ? 0.18f : 0.10f)) + (depth * 0.08f));
 }
 
-void AudioEQAudioProcessor::processDelay(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processDelay(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0 || delayBuffers[0].empty())
         return;
@@ -1745,7 +1745,7 @@ void AudioEQAudioProcessor::processDelay(juce::AudioBuffer<float>& buffer, int c
     }
 }
 
-void AudioEQAudioProcessor::processStereo(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processStereo(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0)
         return;
@@ -1777,7 +1777,7 @@ void AudioEQAudioProcessor::processStereo(juce::AudioBuffer<float>& buffer, int 
                             0.95f + (width * (mode == 0 ? 0.75f : 1.05f)));
 }
 
-void AudioEQAudioProcessor::processReverb(juce::AudioBuffer<float>& buffer, int channelCount)
+void VayuAudioProcessor::processReverb(juce::AudioBuffer<float>& buffer, int channelCount)
 {
     if (channelCount <= 0)
         return;
@@ -1798,7 +1798,7 @@ void AudioEQAudioProcessor::processReverb(juce::AudioBuffer<float>& buffer, int 
     blendModulationToStereo(buffer, modulationScratchBuffer, channelCount, wetAmount, width);
 }
 
-void AudioEQAudioProcessor::processCompressor(juce::AudioBuffer<float>& buffer,
+void VayuAudioProcessor::processCompressor(juce::AudioBuffer<float>& buffer,
                                               int channelCount,
                                               const juce::AudioBuffer<float>* sidechainBuffer)
 {
@@ -1906,5 +1906,5 @@ void AudioEQAudioProcessor::processCompressor(juce::AudioBuffer<float>& buffer,
 
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new AudioEQAudioProcessor();
+    return new VayuAudioProcessor();
 }

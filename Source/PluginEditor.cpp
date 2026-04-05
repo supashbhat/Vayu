@@ -91,7 +91,7 @@ namespace
         return "Shape the tone band by band.";
     }
 
-    using EffectSlot = AudioEQAudioProcessor::EffectSlot;
+    using EffectSlot = VayuAudioProcessor::EffectSlot;
 
     constexpr std::array<EffectSlot, 8> effectSlots{{
         EffectSlot::distortion, EffectSlot::chorus, EffectSlot::flanger,
@@ -277,6 +277,73 @@ namespace
         g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 1.1f);
     }
 
+    juce::Point<float> pointWithin(juce::Rectangle<float> bounds, float x, float y)
+    {
+        return { bounds.getX() + (bounds.getWidth() * x), bounds.getY() + (bounds.getHeight() * y) };
+    }
+
+    void drawVayuSigilBadge(juce::Graphics& g, juce::Rectangle<float> bounds, float phase)
+    {
+        if (bounds.isEmpty())
+            return;
+
+        const auto badgeBounds = bounds.reduced(1.0f);
+        fillGlassCard(g, badgeBounds, 12.0f, vayuAqua().withAlpha(0.38f));
+
+        juce::ColourGradient aura(vayuMint().withAlpha(0.28f),
+                                  badgeBounds.getCentreX(), badgeBounds.getCentreY() - (2.0f * std::sin(phase * 0.9f)),
+                                  juce::Colour::fromRGBA(108, 255, 214, 0),
+                                  badgeBounds.getCentreX(), badgeBounds.getBottom(), true);
+        aura.addColour(0.52, vayuAqua().withAlpha(0.22f));
+        g.setGradientFill(aura);
+        g.fillRoundedRectangle(badgeBounds.reduced(2.0f), 10.0f);
+
+        juce::Path leftSpiral;
+        leftSpiral.startNewSubPath(pointWithin(badgeBounds, 0.33f, 0.28f));
+        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.12f, 0.36f),
+                           pointWithin(badgeBounds, 0.16f, 0.69f),
+                           pointWithin(badgeBounds, 0.44f, 0.70f));
+        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.62f, 0.71f),
+                           pointWithin(badgeBounds, 0.62f, 0.50f),
+                           pointWithin(badgeBounds, 0.48f, 0.44f));
+        leftSpiral.cubicTo(pointWithin(badgeBounds, 0.38f, 0.40f),
+                           pointWithin(badgeBounds, 0.31f, 0.49f),
+                           pointWithin(badgeBounds, 0.37f, 0.56f));
+
+        juce::Path rightSpiral;
+        rightSpiral.startNewSubPath(pointWithin(badgeBounds, 0.66f, 0.34f));
+        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.86f, 0.42f),
+                            pointWithin(badgeBounds, 0.80f, 0.75f),
+                            pointWithin(badgeBounds, 0.52f, 0.74f));
+        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.34f, 0.72f),
+                            pointWithin(badgeBounds, 0.34f, 0.53f),
+                            pointWithin(badgeBounds, 0.49f, 0.48f));
+        rightSpiral.cubicTo(pointWithin(badgeBounds, 0.60f, 0.44f),
+                            pointWithin(badgeBounds, 0.67f, 0.53f),
+                            pointWithin(badgeBounds, 0.62f, 0.61f));
+
+        g.setColour(juce::Colours::white.withAlpha(0.18f));
+        g.strokePath(leftSpiral, juce::PathStrokeType(8.5f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+        g.strokePath(rightSpiral, juce::PathStrokeType(8.5f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+
+        juce::ColourGradient sigilGradient(vayuText(), badgeBounds.getX(), badgeBounds.getY(),
+                                           vayuAqua(), badgeBounds.getRight(), badgeBounds.getBottom(), false);
+        sigilGradient.addColour(0.46, vayuMint());
+        g.setGradientFill(sigilGradient);
+        g.strokePath(leftSpiral, juce::PathStrokeType(3.6f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+        g.strokePath(rightSpiral, juce::PathStrokeType(3.6f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+
+        g.setColour(juce::Colours::white.withAlpha(0.75f));
+        for (size_t i = 0; i < 5; ++i)
+        {
+            const auto orbit = static_cast<float>(i) * 0.82f;
+            const auto px = badgeBounds.getCentreX() + (std::sin(phase * 1.3f + orbit) * badgeBounds.getWidth() * 0.23f);
+            const auto py = badgeBounds.getCentreY() + (std::cos(phase * 1.05f + orbit * 1.1f) * badgeBounds.getHeight() * 0.18f);
+            const auto size = 1.3f + (0.8f * (0.5f + 0.5f * std::sin(phase * 1.9f + orbit)));
+            g.fillEllipse(px - size, py - size, size * 2.0f, size * 2.0f);
+        }
+    }
+
     juce::String formatLevelDb(float linearGain)
     {
         if (linearGain <= 0.00001f)
@@ -304,7 +371,7 @@ namespace
         return "Current effect order: " + names.joinIntoString(" -> ");
     }
 
-    juce::String buildStatusText(const AudioEQAudioProcessor& processor)
+    juce::String buildStatusText(const VayuAudioProcessor& processor)
     {
         const auto sampleRate = processor.getCurrentSampleRateValue();
         const auto effectCount = countEnabledEffects(processor.parameters);
@@ -328,12 +395,12 @@ namespace
 // ==============================================================================
 // EQ Response Curve Component (with spectrum overlay)
 // ==============================================================================
-class AudioEQResponseCurveComponent final : public juce::Component,
+class VayuResponseCurveComponent final : public juce::Component,
                                             public juce::SettableTooltipClient,
                                             private juce::Timer
 {
 public:
-    explicit AudioEQResponseCurveComponent(AudioEQAudioProcessor& processorToUse)
+    explicit VayuResponseCurveComponent(VayuAudioProcessor& processorToUse)
         : processor(processorToUse) { startTimerHz(24); }
 
     void paint(juce::Graphics& g) override
@@ -386,7 +453,7 @@ public:
     }
 
 private:
-    AudioEQAudioProcessor& processor;
+    VayuAudioProcessor& processor;
     int activeBandIndex = -1;
     juce::Point<float> dragStartPosition;
     float startingQValue = 1.0f;
@@ -675,10 +742,10 @@ private:
 // ==============================================================================
 // Band Control Group (Larger knobs)
 // ==============================================================================
-class AudioEQBandControlGroup final : public juce::Component
+class VayuBandControlGroup final : public juce::Component
 {
 public:
-    AudioEQBandControlGroup(juce::AudioProcessorValueTreeState& state,
+    VayuBandControlGroup(juce::AudioProcessorValueTreeState& state,
                             juce::String title, juce::Colour accentColour,
                             const juce::String& freqId, const juce::String& gainId, const juce::String& qId)
         : accent(accentColour)
@@ -772,7 +839,7 @@ class EffectParameterPanel : public juce::Component,
                              private juce::Timer
 {
 public:
-    EffectParameterPanel(AudioEQAudioProcessor& processorToUse)
+    EffectParameterPanel(VayuAudioProcessor& processorToUse)
         : processor(processorToUse), parameters(processorToUse.parameters), compressorReductionBar(compressorReductionValue)
     {
         effectNameLabel.setFont(makeFont(18.0f, juce::Font::bold));
@@ -1068,7 +1135,7 @@ private:
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     using ComboBoxAttachment = juce::AudioProcessorValueTreeState::ComboBoxAttachment;
     
-    AudioEQAudioProcessor& processor;
+    VayuAudioProcessor& processor;
     juce::AudioProcessorValueTreeState& parameters;
     EffectSlot currentSlot = EffectSlot::distortion;
     juce::Label effectNameLabel;
@@ -1314,7 +1381,7 @@ public:
         setColour(juce::TextButton::buttonColourId, vayuText().withAlpha(0.10f));
         setColour(juce::TextButton::textColourOffId, juce::Colours::white);
         setTooltip("Show tips for using Vayu.");
-        onClick = [this]
+        onClick = []
         {
             juce::AlertWindow::showMessageBoxAsync(juce::MessageBoxIconType::NoIcon,
                 "Vayu Help",
@@ -1333,8 +1400,8 @@ public:
     }
 };
 
-AudioEQAudioProcessorEditor::AudioEQAudioProcessorEditor(AudioEQAudioProcessor& processor)
-    : AudioProcessorEditor(&processor), audioProcessor(processor)
+VayuAudioProcessorEditor::VayuAudioProcessorEditor(VayuAudioProcessor& processorRef)
+    : AudioProcessorEditor(&processorRef), audioProcessor(processorRef)
 {
     // Title
     titleLabel.setText("Vayu", juce::dontSendNotification);
@@ -1481,7 +1548,7 @@ AudioEQAudioProcessorEditor::AudioEQAudioProcessorEditor(AudioEQAudioProcessor& 
 
     
     // EQ Response Curve
-    responseCurve = std::make_unique<AudioEQResponseCurveComponent>(audioProcessor);
+    responseCurve = std::make_unique<VayuResponseCurveComponent>(audioProcessor);
     responseCurve->setTooltip("Drag EQ nodes to shape the response. Alt-drag to adjust Q. Double-click a node to reset it.");
     addAndMakeVisible(*responseCurve);
 
@@ -1527,11 +1594,11 @@ AudioEQAudioProcessorEditor::AudioEQAudioProcessorEditor(AudioEQAudioProcessor& 
         juce::Colour::fromRGB(116, 224, 255)
     }};
     
-    bandControls[0] = std::make_unique<AudioEQBandControlGroup>(audioProcessor.parameters, "Low Shelf", accents[0], lowShelfFreqId, lowShelfGainId, lowShelfQId);
-    bandControls[1] = std::make_unique<AudioEQBandControlGroup>(audioProcessor.parameters, "Low Mid", accents[1], lowMidFreqId, lowMidGainId, lowMidQId);
-    bandControls[2] = std::make_unique<AudioEQBandControlGroup>(audioProcessor.parameters, "Mid", accents[2], midFreqId, midGainId, midQId);
-    bandControls[3] = std::make_unique<AudioEQBandControlGroup>(audioProcessor.parameters, "High Mid", accents[3], highMidFreqId, highMidGainId, highMidQId);
-    bandControls[4] = std::make_unique<AudioEQBandControlGroup>(audioProcessor.parameters, "High Shelf", accents[4], highShelfFreqId, highShelfGainId, highShelfQId);
+    bandControls[0] = std::make_unique<VayuBandControlGroup>(audioProcessor.parameters, "Low Shelf", accents[0], lowShelfFreqId, lowShelfGainId, lowShelfQId);
+    bandControls[1] = std::make_unique<VayuBandControlGroup>(audioProcessor.parameters, "Low Mid", accents[1], lowMidFreqId, lowMidGainId, lowMidQId);
+    bandControls[2] = std::make_unique<VayuBandControlGroup>(audioProcessor.parameters, "Mid", accents[2], midFreqId, midGainId, midQId);
+    bandControls[3] = std::make_unique<VayuBandControlGroup>(audioProcessor.parameters, "High Mid", accents[3], highMidFreqId, highMidGainId, highMidQId);
+    bandControls[4] = std::make_unique<VayuBandControlGroup>(audioProcessor.parameters, "High Shelf", accents[4], highShelfFreqId, highShelfGainId, highShelfQId);
     
     for (auto& control : bandControls)
         addAndMakeVisible(*control);
@@ -1541,12 +1608,12 @@ AudioEQAudioProcessorEditor::AudioEQAudioProcessorEditor(AudioEQAudioProcessor& 
     setResizeLimits(1200, 700, 1760, 980);
     setSize(1300, 720);
     refreshStatusText();
-    startTimerHz(12);
+    startTimerHz(24);
 }
 
-AudioEQAudioProcessorEditor::~AudioEQAudioProcessorEditor() = default;
+VayuAudioProcessorEditor::~VayuAudioProcessorEditor() = default;
 
-void AudioEQAudioProcessorEditor::paint(juce::Graphics& g)
+void VayuAudioProcessorEditor::paint(juce::Graphics& g)
 {
     auto bounds = getLocalBounds().toFloat();
     juce::ColourGradient bg(vayuInk(), 0, 0, vayuDeep(), bounds.getRight(), bounds.getBottom(), false);
@@ -1554,35 +1621,52 @@ void AudioEQAudioProcessorEditor::paint(juce::Graphics& g)
     g.setGradientFill(bg);
     g.fillAll();
 
-    juce::ColourGradient orbLeft(vayuMint().withAlpha(0.20f), bounds.getX() + 180.0f, bounds.getY() + 120.0f,
+    const auto leftOrbOffset = std::sin(animationPhase * 0.8f) * 18.0f;
+    const auto rightOrbOffset = std::cos(animationPhase * 0.72f) * 22.0f;
+
+    juce::ColourGradient orbLeft(vayuMint().withAlpha(0.20f), bounds.getX() + 180.0f + leftOrbOffset, bounds.getY() + 120.0f,
                                  juce::Colour::fromRGBA(108, 255, 214, 0), bounds.getX() + 180.0f, bounds.getY() + 380.0f, true);
     g.setGradientFill(orbLeft);
     g.fillEllipse(bounds.getX() - 60.0f, bounds.getY() + 30.0f, 420.0f, 420.0f);
 
-    juce::ColourGradient orbRight(vayuAqua().withAlpha(0.16f), bounds.getRight() - 180.0f, bounds.getY() + 160.0f,
+    juce::ColourGradient orbRight(vayuAqua().withAlpha(0.16f), bounds.getRight() - 180.0f + rightOrbOffset, bounds.getY() + 160.0f,
                                   juce::Colour::fromRGBA(104, 228, 255, 0), bounds.getRight() - 120.0f, bounds.getBottom() - 80.0f, true);
     g.setGradientFill(orbRight);
     g.fillEllipse(bounds.getRight() - 420.0f, bounds.getY() - 10.0f, 360.0f, 360.0f);
 
+    juce::Path ribbon;
+    ribbon.startNewSubPath(bounds.getX() - 24.0f, bounds.getY() + 138.0f + (std::sin(animationPhase) * 12.0f));
+    ribbon.cubicTo(bounds.getX() + bounds.getWidth() * 0.22f, bounds.getY() + 102.0f + (std::cos(animationPhase * 0.9f) * 10.0f),
+                   bounds.getX() + bounds.getWidth() * 0.52f, bounds.getY() + 172.0f + (std::sin(animationPhase * 1.2f) * 11.0f),
+                   bounds.getRight() + 16.0f, bounds.getY() + 116.0f + (std::cos(animationPhase * 0.7f) * 9.0f));
+    g.setColour(vayuAqua().withAlpha(0.08f));
+    g.strokePath(ribbon, juce::PathStrokeType(16.0f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+    g.setColour(vayuMint().withAlpha(0.16f));
+    g.strokePath(ribbon, juce::PathStrokeType(4.0f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
+
     g.setColour(vayuText().withAlpha(0.04f));
     for (float y = 24.0f; y < bounds.getBottom(); y += 26.0f)
         g.drawHorizontalLine(static_cast<int>(y), bounds.getX(), bounds.getRight());
+
+    drawVayuSigilBadge(g, sigilBounds.toFloat(), animationPhase);
 }
 
-void AudioEQAudioProcessorEditor::resized()
+void VayuAudioProcessorEditor::resized()
 {
     auto area = getLocalBounds().reduced(16, 16);
     
     // Top bar
     auto topBar = area.removeFromTop(42);
     titleLabel.setBounds(topBar.removeFromLeft(92));
-    subtitleLabel.setBounds(topBar.removeFromLeft(240));
+    subtitleLabel.setBounds(topBar.removeFromLeft(304));
     redoButton.setBounds(topBar.removeFromRight(64));
     topBar.removeFromRight(6);
     undoButton.setBounds(topBar.removeFromRight(64));
     topBar.removeFromRight(8);
     if (helpButton != nullptr)
         helpButton->setBounds(topBar.removeFromRight(40));
+    topBar.removeFromRight(8);
+    sigilBounds = topBar.removeFromRight(38);
     
     // Preset row
     auto presetRow = area.removeFromTop(50);
@@ -1641,7 +1725,7 @@ void AudioEQAudioProcessorEditor::resized()
     effectParameterPanel->setBounds(rightArea);
 }
 
-void AudioEQAudioProcessorEditor::populatePresetBox()
+void VayuAudioProcessorEditor::populatePresetBox()
 {
     const auto names = audioProcessor.getPresetNames();
     for (int i = 0; i < names.size(); ++i)
@@ -1649,7 +1733,7 @@ void AudioEQAudioProcessorEditor::populatePresetBox()
     presetBox.setSelectedItemIndex(audioProcessor.getCurrentPresetIndex(), juce::dontSendNotification);
 }
 
-void AudioEQAudioProcessorEditor::populateRackPresetBox()
+void VayuAudioProcessorEditor::populateRackPresetBox()
 {
     const auto names = audioProcessor.getRackPresetNames();
     for (int i = 0; i < names.size(); ++i)
@@ -1657,7 +1741,7 @@ void AudioEQAudioProcessorEditor::populateRackPresetBox()
     rackPresetBox.setSelectedItemIndex(audioProcessor.getCurrentRackPresetIndex(), juce::dontSendNotification);
 }
 
-void AudioEQAudioProcessorEditor::populateUserRackPresetBox()
+void VayuAudioProcessorEditor::populateUserRackPresetBox()
 {
     const auto currentText = userRackPresetBox.getText();
     userRackPresetBox.clear(juce::dontSendNotification);
@@ -1671,18 +1755,22 @@ void AudioEQAudioProcessorEditor::populateUserRackPresetBox()
     deleteRackPresetButton.setEnabled(names.contains(userRackPresetBox.getText().trim()));
 }
 
-void AudioEQAudioProcessorEditor::refreshPresetDescription()
+void VayuAudioProcessorEditor::refreshPresetDescription()
 {
     presetDescriptionLabel.setText(getPresetDescription(presetBox.getSelectedItemIndex()), juce::dontSendNotification);
 }
 
-void AudioEQAudioProcessorEditor::refreshStatusText()
+void VayuAudioProcessorEditor::refreshStatusText()
 {
     statusLabel.setText(buildStatusText(audioProcessor), juce::dontSendNotification);
 }
 
-void AudioEQAudioProcessorEditor::timerCallback()
+void VayuAudioProcessorEditor::timerCallback()
 {
+    animationPhase += 0.055f;
+    if (animationPhase > juce::MathConstants<float>::twoPi)
+        animationPhase -= juce::MathConstants<float>::twoPi;
+
     undoButton.setEnabled(audioProcessor.canUndo());
     redoButton.setEnabled(audioProcessor.canRedo());
 
@@ -1706,9 +1794,10 @@ void AudioEQAudioProcessorEditor::timerCallback()
     
     refreshPresetDescription();
     refreshStatusText();
+    repaint();
 }
 
-void AudioEQAudioProcessorEditor::parentHierarchyChanged()
+void VayuAudioProcessorEditor::parentHierarchyChanged()
 {
     AudioProcessorEditor::parentHierarchyChanged();
 
@@ -1727,7 +1816,7 @@ void AudioEQAudioProcessorEditor::parentHierarchyChanged()
     }
 }
 
-void AudioEQAudioProcessorEditor::visibilityChanged()
+void VayuAudioProcessorEditor::visibilityChanged()
 {
     AudioProcessorEditor::visibilityChanged();
 }

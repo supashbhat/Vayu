@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="XXVd3Q" name="Vayu" projectType="audioplug" useAppConfig="0"
-              pluginFormats="buildVST3,buildAU,buildStandalone" pluginCharacteristicsValue="pluginEditorRequiresKeys"
-              pluginName="Vayu" pluginDesc="Modular multi-effect rack and EQ" pluginManufacturer="Supash Bhat"
-              pluginManufacturerCode="Sphb" pluginCode="Aeq1" pluginChannelConfigs="{2,2}"
+              pluginFormats="buildVST3,buildAU" pluginCharacteristicsValue="pluginEditorRequiresKeys"
+              pluginName="Vayu" pluginDesc="Modular multi-effect rack" pluginManufacturer="Supash Bhat"
+              companyName="Supash Bhat" companyWebsite="https://supashbhat.github.io"
+              pluginManufacturerCode="Sphb" pluginCode="Vayu" pluginChannelConfigs="{2,2}"
               pluginAUMainType="'aufx'" bundleIdentifier="com.supash.vayu"
+              pluginAUExportPrefix="VayuAU" aaxIdentifier="com.supash.vayu"
+              araFactoryID="com.supash.vayu.factory"
+              araDocumentArchiveID="com.supash.vayu.aradocumentarchive.1.0.0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="pUz2KE" name="Vayu">
     <GROUP id="{792A7AE9-B5D8-FA42-CF26-6D8C15C1236A}" name="Source"/>

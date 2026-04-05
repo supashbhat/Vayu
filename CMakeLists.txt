@@ -28,6 +28,7 @@ endif()
 
 juce_add_plugin(Vayu
     COMPANY_NAME "Supash Bhat"
+    COMPANY_WEBSITE "https://supashbhat.github.io"
     BUNDLE_ID com.supash.vayu
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
@@ -36,8 +37,14 @@ juce_add_plugin(Vayu
     EDITOR_WANTS_KEYBOARD_FOCUS TRUE
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE Sphb
-    PLUGIN_CODE Aeq1
+    PLUGIN_CODE Vayu
+    DESCRIPTION "Modular multi-effect rack"
     FORMATS ${VAYU_FORMATS}
+    AAX_IDENTIFIER "com.supash.vayu"
+    AU_MAIN_TYPE kAudioUnitType_Effect
+    AU_EXPORT_PREFIX VayuAU
+    ARA_FACTORY_ID "com.supash.vayu.factory"
+    ARA_DOCUMENT_ARCHIVE_ID "com.supash.vayu.aradocumentarchive.1.0.0"
     PRODUCT_NAME "Vayu"
 )
 

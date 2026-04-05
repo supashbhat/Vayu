@@ -11,15 +11,15 @@
 #define JucePlugin_ProducesMidiOutput 0
 #define JucePlugin_EditorRequiresKeyboardFocus 1
 #define JucePlugin_ManufacturerCode 'SphB'
-#define JucePlugin_PluginCode '8a4c'
+#define JucePlugin_PluginCode 'Vayu'
 #define JucePlugin_Name "Vayu"
-#define JucePlugin_Desc "Five-band spectral sculptor"
+#define JucePlugin_Desc "Modular multi-effect rack"
 #define JucePlugin_Manufacturer "Supash Bhat"
-#define JucePlugin_ManufacturerWebsite "supashbhat.github.io"//
+#define JucePlugin_ManufacturerWebsite "https://supashbhat.github.io"
 
 
 //  PluginConfig.h
-//  AudioEQ - App
+//  Vayu - App
 //
 //  Created by Supash Bhat on 3/31/26.
 //

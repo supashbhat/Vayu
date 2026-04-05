@@ -3,19 +3,19 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
-class AudioEQResponseCurveComponent;
-class AudioEQBandControlGroup;
+class VayuResponseCurveComponent;
+class VayuBandControlGroup;
 class EffectParameterPanel;
 class EffectChainComponent;
 class HelpButton;
 class AudioLevelMeter;
 
-class AudioEQAudioProcessorEditor : public juce::AudioProcessorEditor,
-                                    private juce::Timer
+class VayuAudioProcessorEditor : public juce::AudioProcessorEditor,
+                                 private juce::Timer
 {
 public:
-    explicit AudioEQAudioProcessorEditor(AudioEQAudioProcessor&);
-    ~AudioEQAudioProcessorEditor() override;
+    explicit VayuAudioProcessorEditor(VayuAudioProcessor& processorRef);
+    ~VayuAudioProcessorEditor() override;
 
     void paint(juce::Graphics&) override;
     void resized() override;
@@ -25,7 +25,7 @@ public:
 private:
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 
-    AudioEQAudioProcessor& audioProcessor;
+    VayuAudioProcessor& audioProcessor;
     juce::TooltipWindow tooltipWindow { this, 500 };
 
     // Top bar
@@ -54,8 +54,8 @@ private:
     juce::Label statusLabel;
 
     // EQ
-    std::unique_ptr<AudioEQResponseCurveComponent> responseCurve;
-    std::array<std::unique_ptr<AudioEQBandControlGroup>, 5> bandControls;
+    std::unique_ptr<VayuResponseCurveComponent> responseCurve;
+    std::array<std::unique_ptr<VayuBandControlGroup>, 5> bandControls;
 
     // Effect parameters
     std::unique_ptr<EffectParameterPanel> effectParameterPanel;
@@ -63,6 +63,8 @@ private:
     // Effect chain (drag to reorder at bottom)
     std::unique_ptr<EffectChainComponent> effectChain;
     bool hasPositionedStandaloneWindow = false;
+    juce::Rectangle<int> sigilBounds;
+    float animationPhase = 0.0f;
 
     void populatePresetBox();
     void populateRackPresetBox();
@@ -71,5 +73,5 @@ private:
     void refreshStatusText();
     void timerCallback() override;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioEQAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VayuAudioProcessorEditor)
 };

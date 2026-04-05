@@ -26,7 +26,7 @@
  #define JucePlugin_Build_AAX              0
 #endif
 #ifndef  JucePlugin_Build_Standalone
- #define JucePlugin_Build_Standalone       1
+ #define JucePlugin_Build_Standalone       0
 #endif
 #ifndef  JucePlugin_Build_Unity
  #define JucePlugin_Build_Unity            0
@@ -44,13 +44,13 @@
  #define JucePlugin_Name                   "Vayu"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Vayu"
+ #define JucePlugin_Desc                   "Modular multi-effect rack"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Supash Bhat"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "supashbhat.github.io"
+ #define JucePlugin_ManufacturerWebsite    "https://supashbhat.github.io"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
  #define JucePlugin_ManufacturerEmail      ""
@@ -59,7 +59,7 @@
  #define JucePlugin_ManufacturerCode       0x53706862
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x41657131
+ #define JucePlugin_PluginCode             0x56617975
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -101,10 +101,10 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         AudioEQAU
+ #define JucePlugin_AUExportPrefix         VayuAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "AudioEQAU"
+ #define JucePlugin_AUExportPrefixQuoted   "VayuAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
@@ -113,7 +113,7 @@
  #define JucePlugin_CFBundleIdentifier     com.supash.vayu
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.yourcompany.AudioEQ
+ #define JucePlugin_AAXIdentifier          com.supash.vayu
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -152,10 +152,10 @@
  #define JucePlugin_ARATransformationFlags  0
 #endif
 #ifndef  JucePlugin_ARAFactoryID
- #define JucePlugin_ARAFactoryID           "com.yourcompany.AudioEQ.factory"
+ #define JucePlugin_ARAFactoryID           "com.supash.vayu.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.yourcompany.AudioEQ.aradocumentarchive.1.0.0"
+ #define JucePlugin_ARADocumentArchiveID   "com.supash.vayu.aradocumentarchive.1.0.0"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""

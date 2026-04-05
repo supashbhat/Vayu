@@ -15,7 +15,6 @@
 			dependencies = (
 				43B01D64A741C60E30E173C9,
 				73A055CAB56F3C572BFAD159,
-				9DDC6FDD588BC2B28E181AC7,
 				CE5D462DEA74D5126E7D3ECF,
 				E88F47830442830D05F5E2BA,
 			);
@@ -27,16 +26,13 @@
 /* Begin PBXBuildFile section */
 		028371765710E4CCE3CA0A75 /* include_juce_data_structures.mm */ = {isa = PBXBuildFile; fileRef = 846AC82ABA2DB440C80EC8A4; };
 		03BD6E8F3774A2E9864C9F54 /* WebKit.framework */ = {isa = PBXBuildFile; fileRef = 52085CCBFC6FAAEBD97BAAF0; };
-		0BB990EBAD6B8A192586CDBD /* PluginProcessor.cpp */ = {isa = PBXBuildFile; fileRef = F266B1AA7BBC97E9374D739D; };
 		121170008782582D68DFB2EB /* CoreMedia.framework */ = {isa = PBXBuildFile; fileRef = ACA5DC6A4DC61A140AEDE478; };
 		1569E2A4B3AAE1185FA929A6 /* include_juce_cryptography.mm */ = {isa = PBXBuildFile; fileRef = 404CCA8EA1E4E44AEBA5AFB6; };
 		16444EDA1D883D5D2A5DCF4B /* include_juce_dsp.mm */ = {isa = PBXBuildFile; fileRef = 23B77088B88A911167A8A7A2; };
 		1CE190EB1685DF2104E2C414 /* CoreAudioKit.framework */ = {isa = PBXBuildFile; fileRef = 1DFB47CC4487442C818D9871; };
 		1F4AF6477F967E7B41D1EDEA /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = 05B0E18A1A81C97566D625B0; };
-		207DA1446ED8216975E18B4A /* PluginEditor.cpp */ = {isa = PBXBuildFile; fileRef = 10E6A19B32861C3EB58A67D1; };
 		2E2135D5753CF01792FD99BC /* include_juce_audio_formats.mm */ = {isa = PBXBuildFile; fileRef = 0EC115F8509491FFB064E5A0; };
 		2E24CC09291A4CD53BDB4F99 /* RecentFilesMenuTemplate.nib */ = {isa = PBXBuildFile; fileRef = 717E973ED51D3C7279BBD52A; };
-		A1B2C3D4E5F60718293A4B5C /* Vayu.icns */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5B; };
 		2FCBBD9BCBFAF4E92AB8C7F9 /* include_juce_events.mm */ = {isa = PBXBuildFile; fileRef = 68A9F9A2375381B821ABB6BD; };
 		3DC34514A172E045F6B5F8B4 /* Shared Code */ = {isa = PBXBuildFile; fileRef = 2FD2ED24BECF0453AF35C503; };
 		48D3D0B69B68CBD6235F8F33 /* include_juce_animation.cpp */ = {isa = PBXBuildFile; fileRef = 4CD8357276671EBB5FF1D5CB; };
@@ -49,6 +45,7 @@
 		5FE29A2BFE9FC76813A1B7B8 /* include_juce_product_unlocking.mm */ = {isa = PBXBuildFile; fileRef = 1A1D2263BFCE75909081CDE6; };
 		60F15A7F478C4F554E11137C /* AVKit.framework */ = {isa = PBXBuildFile; fileRef = 28B3B8E1E9E3D308D24CDBC2; };
 		61440104E9B8AA62B2446107 /* AudioUnit.framework */ = {isa = PBXBuildFile; fileRef = 91F64E429BECFF42DCEC8002; };
+		6AB14BAD564B3FD8E67A8A17 /* PluginProcessor.cpp */ = {isa = PBXBuildFile; fileRef = C11558AD8A522ECDCDBD6E9B; };
 		6C4F42EF672610BAB3742E3C /* include_juce_graphics_Harfbuzz.cpp */ = {isa = PBXBuildFile; fileRef = 8A72476C34418C706B0DF7D1; };
 		6D3174BF516CBE112D6737CF /* AVFoundation.framework */ = {isa = PBXBuildFile; fileRef = 32B0E99CB95F66CDEC375840; };
 		71DE950624B3905C99CC1B6F /* MetalKit.framework */ = {isa = PBXBuildFile; fileRef = C70CA25DB9DB1F923F55E8C3; settings = { ATTRIBUTES = (Weak, ); }; };
@@ -60,10 +57,10 @@
 		8C8B9D88A336DC9D502F8F81 /* AudioToolbox.framework */ = {isa = PBXBuildFile; fileRef = 9B53C93C86844B5F21B5C9A9; };
 		8FDEFE0DC8DDE23066B8DD36 /* include_juce_audio_utils.mm */ = {isa = PBXBuildFile; fileRef = 443F6C04E4AA24483C77FFA4; };
 		90C38E1BD9ACEDE8C6D9D6DC /* include_juce_box2d.cpp */ = {isa = PBXBuildFile; fileRef = A27A6BDB34F7CB31982AD878; };
-		9168A6E21B67E93C60380BBE /* Standalone Plugin */ = {isa = PBXBuildFile; fileRef = F3424B4A4B898F748A096867; };
 		936DEAA1888B39B58C67286D /* include_juce_audio_devices.mm */ = {isa = PBXBuildFile; fileRef = 93C98C62B49E94A21CA2CE68; };
 		A20625C73C156E89679DCBB5 /* IOKit.framework */ = {isa = PBXBuildFile; fileRef = 3E935F84A4C3C480D9BE126C; };
 		A51B57BCB5E573D84465F6BE /* include_juce_audio_basics.mm */ = {isa = PBXBuildFile; fileRef = 1187DF2F36F581E5F79ECC81; };
+		A5C3F12A3E3A9432B4C1C5D5 /* PluginEditor.cpp */ = {isa = PBXBuildFile; fileRef = 3F86B22F3C8BC6AA2F99419A; };
 		A6D95C13FC82E6B0A4164AC4 /* Metal.framework */ = {isa = PBXBuildFile; fileRef = 3ED243BAAFB98CA371D8CBBB; settings = { ATTRIBUTES = (Weak, ); }; };
 		A81EA5945946CF6D99127809 /* include_juce_audio_plugin_client_ARA.cpp */ = {isa = PBXBuildFile; fileRef = 8E413C8B54D954109DBCED63; };
 		A8492187F819C72C54079768 /* include_juce_core_CompilationTime.cpp */ = {isa = PBXBuildFile; fileRef = F90B235451CFD8AA1FB7A920; };
@@ -79,7 +76,6 @@
 		D4760706E085DDC2F25730A7 /* include_juce_audio_processors_ara.cpp */ = {isa = PBXBuildFile; fileRef = 5E2A6B8A7D0E48F4FF9113BD; };
 		DC768DF084FCAFDF99B34864 /* include_juce_gui_extra.mm */ = {isa = PBXBuildFile; fileRef = 4BA96B416572E3BF79AA13AF; };
 		E3379A7CE3688AE556C58E6C /* Security.framework */ = {isa = PBXBuildFile; fileRef = DB0924D874AAE7FF80C63D85; };
-		E7825CCF52BDF39E21CF4291 /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXBuildFile; fileRef = 72E32B90758EEF7EB8EABA51; };
 		EA4C651D8E5F3D2CCC14F86C /* include_juce_audio_plugin_client_AU_1.mm */ = {isa = PBXBuildFile; fileRef = E79883FCE25ED66BDB83A690; };
 		EA5AD4A38178D163486E5366 /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = 71711A5709CE410B42FB8BBC; };
 		EE8AAB52583D1732858DC605 /* include_juce_audio_processors.mm */ = {isa = PBXBuildFile; fileRef = 49771A583081F814371A0BE0; };
@@ -91,9 +87,7 @@
 /* Begin PBXFileReference section */
 		01E1DE0164A4B5F27BA7B487 /* juce_audio_devices */ /* juce_audio_devices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_devices; path = /Users/Supash/JUCE/modules/juce_audio_devices; sourceTree = "<absolute>"; };
 		05B0E18A1A81C97566D625B0 /* include_juce_graphics.mm */ /* include_juce_graphics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_graphics.mm; path = ../../JuceLibraryCode/include_juce_graphics.mm; sourceTree = SOURCE_ROOT; };
-		08EB559E735B470C6645F375 /* Info-Standalone_Plugin.plist */ /* Info-Standalone_Plugin.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Standalone_Plugin.plist"; path = "Info-Standalone_Plugin.plist"; sourceTree = SOURCE_ROOT; };
 		0EC115F8509491FFB064E5A0 /* include_juce_audio_formats.mm */ /* include_juce_audio_formats.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_formats.mm; path = ../../JuceLibraryCode/include_juce_audio_formats.mm; sourceTree = SOURCE_ROOT; };
-		10E6A19B32861C3EB58A67D1 /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
 		10EF1DF4AD40D2472568B4F3 /* CoreAudio.framework */ /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1187DF2F36F581E5F79ECC81 /* include_juce_audio_basics.mm */ /* include_juce_audio_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_basics.mm; path = ../../JuceLibraryCode/include_juce_audio_basics.mm; sourceTree = SOURCE_ROOT; };
 		11A871EFD11D066F73C43BD5 /* juce_graphics */ /* juce_graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_graphics; path = /Users/Supash/JUCE/modules/juce_graphics; sourceTree = "<absolute>"; };
@@ -111,12 +105,13 @@
 		28B3B8E1E9E3D308D24CDBC2 /* AVKit.framework */ /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		29270EBB2E40A6896383D0C2 /* Info-AU.plist */ /* Info-AU.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-AU.plist"; path = "Info-AU.plist"; sourceTree = SOURCE_ROOT; };
 		2A781B30A2FCD44EB4D6A507 /* include_juce_audio_plugin_client_AU_2.mm */ /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_2.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm; sourceTree = SOURCE_ROOT; };
-		2FD2ED24BECF0453AF35C503 /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAudioEQ.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD2ED24BECF0453AF35C503 /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVayu.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B0E99CB95F66CDEC375840 /* AVFoundation.framework */ /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		39964DD0C9F213D556EE63E9 /* DiscRecording.framework */ /* DiscRecording.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscRecording.framework; path = System/Library/Frameworks/DiscRecording.framework; sourceTree = SDKROOT; };
 		3B0C8B4E1EF38FC829491C0C /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/Supash/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
 		3E935F84A4C3C480D9BE126C /* IOKit.framework */ /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		3ED243BAAFB98CA371D8CBBB /* Metal.framework */ /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		3F86B22F3C8BC6AA2F99419A /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
 		404CCA8EA1E4E44AEBA5AFB6 /* include_juce_cryptography.mm */ /* include_juce_cryptography.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_cryptography.mm; path = ../../JuceLibraryCode/include_juce_cryptography.mm; sourceTree = SOURCE_ROOT; };
 		43DF189FE044C8BFE3065CFF /* juce_gui_extra */ /* juce_gui_extra */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_extra; path = /Users/Supash/JUCE/modules/juce_gui_extra; sourceTree = "<absolute>"; };
 		440CB13B98764212FF48AA8B /* juce_gui_basics */ /* juce_gui_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_basics; path = /Users/Supash/JUCE/modules/juce_gui_basics; sourceTree = "<absolute>"; };
@@ -132,6 +127,7 @@
 		564AAA751B05EF17C8F2C186 /* juce_javascript */ /* juce_javascript */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_javascript; path = /Users/Supash/JUCE/modules/juce_javascript; sourceTree = "<absolute>"; };
 		569B4B014D1BCF56C513CA03 /* Info-VST3_Manifest_Helper.plist */ /* Info-VST3_Manifest_Helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-VST3_Manifest_Helper.plist"; path = "Info-VST3_Manifest_Helper.plist"; sourceTree = SOURCE_ROOT; };
 		5E2A6B8A7D0E48F4FF9113BD /* include_juce_audio_processors_ara.cpp */ /* include_juce_audio_processors_ara.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_processors_ara.cpp; path = ../../JuceLibraryCode/include_juce_audio_processors_ara.cpp; sourceTree = SOURCE_ROOT; };
+		5FF0D7E7DEB1C14C5FFE77EC /* PluginProcessor.h */ /* PluginProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginProcessor.h; path = ../../Source/PluginProcessor.h; sourceTree = SOURCE_ROOT; };
 		60A3A50498E800DDAA666C69 /* juce_audio_processors */ /* juce_audio_processors */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_processors; path = /Users/Supash/JUCE/modules/juce_audio_processors; sourceTree = "<absolute>"; };
 		6306274C8B825C30E352F279 /* OpenGL.framework */ /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		659062A38DC9C49A6A279DCF /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Vayu.component; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,8 +136,6 @@
 		6E6F76F0300F565E56B92250 /* include_juce_osc.cpp */ /* include_juce_osc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_osc.cpp; path = ../../JuceLibraryCode/include_juce_osc.cpp; sourceTree = SOURCE_ROOT; };
 		71711A5709CE410B42FB8BBC /* include_juce_gui_basics.mm */ /* include_juce_gui_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_gui_basics.mm; path = ../../JuceLibraryCode/include_juce_gui_basics.mm; sourceTree = SOURCE_ROOT; };
 		717E973ED51D3C7279BBD52A /* RecentFilesMenuTemplate.nib */ /* RecentFilesMenuTemplate.nib */ = {isa = PBXFileReference; lastKnownFileType = file.nib; name = RecentFilesMenuTemplate.nib; path = RecentFilesMenuTemplate.nib; sourceTree = SOURCE_ROOT; };
-		A1B2C3D4E5F60718293A4B5B /* Vayu.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Vayu.icns; path = Vayu.icns; sourceTree = SOURCE_ROOT; };
-		72E32B90758EEF7EB8EABA51 /* include_juce_audio_plugin_client_Standalone.cpp */ /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_Standalone.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp; sourceTree = SOURCE_ROOT; };
 		752C852AD1E426675638176F /* juce_box2d */ /* juce_box2d */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_box2d; path = /Users/Supash/JUCE/modules/juce_box2d; sourceTree = "<absolute>"; };
 		7BE6EE2AC0D6FAA5852B2FB7 /* juce_core */ /* juce_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_core; path = /Users/Supash/JUCE/modules/juce_core; sourceTree = "<absolute>"; };
 		846AC82ABA2DB440C80EC8A4 /* include_juce_data_structures.mm */ /* include_juce_data_structures.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_data_structures.mm; path = ../../JuceLibraryCode/include_juce_data_structures.mm; sourceTree = SOURCE_ROOT; };
@@ -163,18 +157,16 @@
 		B95B69AFE59D99CAA4231077 /* juce_opengl */ /* juce_opengl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_opengl; path = /Users/Supash/JUCE/modules/juce_opengl; sourceTree = "<absolute>"; };
 		BB447E9C48EE43468FDAD31C /* juce_osc */ /* juce_osc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_osc; path = /Users/Supash/JUCE/modules/juce_osc; sourceTree = "<absolute>"; };
 		BBA253A925550E014A9FDE68 /* Cocoa.framework */ /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		C19734BE6F1919372FA82D7E /* PluginEditor.h */ /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
+		C11558AD8A522ECDCDBD6E9B /* PluginProcessor.cpp */ /* PluginProcessor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginProcessor.cpp; path = ../../Source/PluginProcessor.cpp; sourceTree = SOURCE_ROOT; };
 		C70CA25DB9DB1F923F55E8C3 /* MetalKit.framework */ /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		C7F8094EB2414685D09ACC61 /* include_juce_core.mm */ /* include_juce_core.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_core.mm; path = ../../JuceLibraryCode/include_juce_core.mm; sourceTree = SOURCE_ROOT; };
 		D5D12384F92521B9B54C83DA /* VST3 Manifest Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = juce_vst3_helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B96981F2676443202F80F3 /* juce_VST3ManifestHelper.mm */ /* juce_VST3ManifestHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_VST3ManifestHelper.mm; path = /Users/Supash/JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.mm; sourceTree = "<absolute>"; };
 		DB0924D874AAE7FF80C63D85 /* Security.framework */ /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DD6F88247C3ECE22C4B16B0F /* juce_cryptography */ /* juce_cryptography */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_cryptography; path = /Users/Supash/JUCE/modules/juce_cryptography; sourceTree = "<absolute>"; };
-		DDBE95D86AD986647C91B0C8 /* PluginProcessor.h */ /* PluginProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginProcessor.h; path = ../../Source/PluginProcessor.h; sourceTree = SOURCE_ROOT; };
+		E1112B56C4C75EA295ADD744 /* PluginEditor.h */ /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
 		E2563F7FE1699F6E3D518935 /* QuartzCore.framework */ /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E79883FCE25ED66BDB83A690 /* include_juce_audio_plugin_client_AU_1.mm */ /* include_juce_audio_plugin_client_AU_1.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_1.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm; sourceTree = SOURCE_ROOT; };
-		F266B1AA7BBC97E9374D739D /* PluginProcessor.cpp */ /* PluginProcessor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginProcessor.cpp; path = ../../Source/PluginProcessor.cpp; sourceTree = SOURCE_ROOT; };
-		F3424B4A4B898F748A096867 /* Standalone Plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vayu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F458A20D7766FAE9E9338F14 /* juce_audio_basics */ /* juce_audio_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_basics; path = /Users/Supash/JUCE/modules/juce_audio_basics; sourceTree = "<absolute>"; };
 		F7951F01AF36BCA27B078887 /* include_juce_javascript.cpp */ /* include_juce_javascript.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_javascript.cpp; path = ../../JuceLibraryCode/include_juce_javascript.cpp; sourceTree = SOURCE_ROOT; };
 		F90B235451CFD8AA1FB7A920 /* include_juce_core_CompilationTime.cpp */ /* include_juce_core_CompilationTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_core_CompilationTime.cpp; path = ../../JuceLibraryCode/include_juce_core_CompilationTime.cpp; sourceTree = SOURCE_ROOT; };
@@ -185,31 +177,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D02DCFB208383B507B9C198 = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84D77FA2A343C2C543FACD2D,
-				8C8B9D88A336DC9D502F8F81,
-				6D3174BF516CBE112D6737CF,
-				60F15A7F478C4F554E11137C,
-				7F32650B6D10271B76C08E1D,
-				5D56F638568BC8BCEC61F9A4,
-				1CE190EB1685DF2104E2C414,
-				121170008782582D68DFB2EB,
-				BDD0E7FDA8A389C7AE8EF026,
-				58CDB575A36047814187784C,
-				A8B4E38B48F73E9720039D4C,
-				A20625C73C156E89679DCBB5,
-				79CB99C5D0F69DE2D7118FE2,
-				576AAA23F59F841780500D9B,
-				E3379A7CE3688AE556C58E6C,
-				03BD6E8F3774A2E9864C9F54,
-				A6D95C13FC82E6B0A4164AC4,
-				71DE950624B3905C99CC1B6F,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		779860A809546B05231F2D00 = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,22 +290,21 @@
 			children = (
 				FCAED185E3D9F18DE28B6033,
 				29270EBB2E40A6896383D0C2,
-				08EB559E735B470C6645F375,
 				569B4B014D1BCF56C513CA03,
 				717E973ED51D3C7279BBD52A,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		529E0E054687E62CAD20DC0A /* AudioEQ */ = {
+		529E0E054687E62CAD20DC0A /* Vayu */ = {
 			isa = PBXGroup;
 			children = (
-				10E6A19B32861C3EB58A67D1,
-				C19734BE6F1919372FA82D7E,
-				F266B1AA7BBC97E9374D739D,
-				DDBE95D86AD986647C91B0C8,
+				3F86B22F3C8BC6AA2F99419A,
+				E1112B56C4C75EA295ADD744,
+				C11558AD8A522ECDCDBD6E9B,
+				5FF0D7E7DEB1C14C5FFE77EC,
 			);
-			name = AudioEQ;
+			name = Vayu;
 			sourceTree = "<group>";
 		};
 		8744014410A1A4CB3D5B45ED /* Products */ = {
@@ -346,7 +312,6 @@
 			children = (
 				14731AD0A7D24DB0451268DF,
 				659062A38DC9C49A6A279DCF,
-				F3424B4A4B898F748A096867,
 				2FD2ED24BECF0453AF35C503,
 				D5D12384F92521B9B54C83DA,
 			);
@@ -364,7 +329,6 @@
 				8E413C8B54D954109DBCED63,
 				E79883FCE25ED66BDB83A690,
 				2A781B30A2FCD44EB4D6A507,
-				72E32B90758EEF7EB8EABA51,
 				1C7E29FB75F6155D6F265065,
 				49771A583081F814371A0BE0,
 				5E2A6B8A7D0E48F4FF9113BD,
@@ -507,24 +471,6 @@
 			productReference = 14731AD0A7D24DB0451268DF;
 			productType = "com.apple.product-type.bundle";
 		};
-		ED6483E1166AA37D56C6A2D9 /* Vayu - Standalone Plugin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 146176028DA1D491AFDE05E6;
-			buildPhases = (
-				E485811C28617C4563DFF4B4,
-				B406C096847A7D639D3C9568,
-				779860A809546B05231F2D00,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				812C8C42BF5EECB060C142C4,
-			);
-			name = "Vayu - Standalone Plugin";
-			productName = Vayu;
-			productReference = F3424B4A4B898F748A096867;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -533,7 +479,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1340;
-				ORGANIZATIONNAME = "";
+				ORGANIZATIONNAME = "Supash Bhat";
 				TargetAttributes = {
 					00F993527FF9EC2A36F08779 = {
 						SystemCapabilities = {
@@ -645,28 +591,6 @@
 							};
 						};
 					};
-					ED6483E1166AA37D56C6A2D9 = {
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-							com.apple.HardenedRuntime = {
-								enabled = 0;
-							};
-							com.apple.InAppPurchase = {
-								enabled = 0;
-							};
-							com.apple.InterAppAudio = {
-								enabled = 0;
-							};
-							com.apple.Push = {
-								enabled = 0;
-							};
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = C88F11C9F3831C5090596AF0;
@@ -683,7 +607,6 @@
 				42D0747A94AC3AA0C1C1F075,
 				EC61CF8D638ADC92243E482A,
 				00F993527FF9EC2A36F08779,
-				ED6483E1166AA37D56C6A2D9,
 				41C0C07D658C1E8B9A0F30E3,
 				017B9DB6B60532FE38E6AD39,
 			);
@@ -704,15 +627,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E24CC09291A4CD53BDB4F99,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E485811C28617C4563DFF4B4 = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E24CC09291A4CD53BDB4F99,
-				A1B2C3D4E5F60718293A4B5C,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,20 +686,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B406C096847A7D639D3C9568 = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7825CCF52BDF39E21CF4291,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B436498CFC169C0A205F36BF = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				207DA1446ED8216975E18B4A,
-				0BB990EBAD6B8A192586CDBD,
+				A5C3F12A3E3A9432B4C1C5D5,
+				6AB14BAD564B3FD8E67A8A17,
 				ADB7DA4247052A83AB63F9F9,
 				48D3D0B69B68CBD6235F8F33,
 				A51B57BCB5E573D84465F6BE,
@@ -843,14 +749,6 @@
 		73A055CAB56F3C572BFAD159 = {
 			isa = PBXTargetDependency;
 			target = 00F993527FF9EC2A36F08779;
-		};
-		812C8C42BF5EECB060C142C4 = {
-			isa = PBXTargetDependency;
-			target = 41C0C07D658C1E8B9A0F30E3;
-		};
-		9DDC6FDD588BC2B28E181AC7 = {
-			isa = PBXTargetDependency;
-			target = ED6483E1166AA37D56C6A2D9;
 		};
 		CE5D462DEA74D5126E7D3ECF = {
 			isa = PBXTargetDependency;
@@ -967,12 +865,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -986,11 +884,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1003,8 +901,8 @@
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1086,12 +984,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1105,11 +1003,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1117,13 +1015,13 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1206,12 +1104,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1225,11 +1123,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1237,13 +1135,13 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1268,7 +1166,7 @@
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-bundle -lAudioEQ";
+				OTHER_LDFLAGS = "-bundle -lVayu";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
 				PRODUCT_NAME = "Vayu";
@@ -1331,12 +1229,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1350,11 +1248,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1367,8 +1265,8 @@
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1394,7 +1292,7 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-bundle -lAudioEQ";
+				OTHER_LDFLAGS = "-bundle -lVayu";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
 				PRODUCT_NAME = "Vayu";
@@ -1457,12 +1355,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1476,11 +1374,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1493,8 +1391,8 @@
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1519,7 +1417,7 @@
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-bundle -lAudioEQ";
+				OTHER_LDFLAGS = "-bundle -lVayu";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
 				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
@@ -1581,12 +1479,12 @@
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1600,11 +1498,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1612,13 +1510,13 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1644,7 +1542,7 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-bundle -lAudioEQ";
+				OTHER_LDFLAGS = "-bundle -lVayu";
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
 				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
@@ -1700,18 +1598,18 @@
 					"JucePlugin_Build_AU=1",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 					"JucePlugin_Build_LV2=0",
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -1725,11 +1623,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -1742,8 +1640,8 @@
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -1768,126 +1666,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
 				PRODUCT_NAME = "Vayu";
 				SKIP_INSTALL = YES;
-				USE_HEADERMAP = NO;
-				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
-			};
-			name = Debug;
-		};
-		C3696CBFEFD07B4C82CCB217 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
-				COPY_PHASE_STRIP = NO;
-				EXCLUDED_ARCHS = "";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_DEBUG=1",
-					"DEBUG=1",
-					"JUCE_PROJUCER_VERSION=0x80004",
-					"JUCE_MODULE_AVAILABLE_juce_analytics=1",
-					"JUCE_MODULE_AVAILABLE_juce_animation=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_basics=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_devices=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_formats=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_processors=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_utils=1",
-					"JUCE_MODULE_AVAILABLE_juce_box2d=1",
-					"JUCE_MODULE_AVAILABLE_juce_core=1",
-					"JUCE_MODULE_AVAILABLE_juce_cryptography=1",
-					"JUCE_MODULE_AVAILABLE_juce_data_structures=1",
-					"JUCE_MODULE_AVAILABLE_juce_dsp=1",
-					"JUCE_MODULE_AVAILABLE_juce_events=1",
-					"JUCE_MODULE_AVAILABLE_juce_graphics=1",
-					"JUCE_MODULE_AVAILABLE_juce_gui_basics=1",
-					"JUCE_MODULE_AVAILABLE_juce_gui_extra=1",
-					"JUCE_MODULE_AVAILABLE_juce_javascript=1",
-					"JUCE_MODULE_AVAILABLE_juce_midi_ci=1",
-					"JUCE_MODULE_AVAILABLE_juce_opengl=1",
-					"JUCE_MODULE_AVAILABLE_juce_osc=1",
-					"JUCE_MODULE_AVAILABLE_juce_product_unlocking=1",
-					"JUCE_MODULE_AVAILABLE_juce_video=1",
-					"JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1",
-					"JUCE_STRICT_REFCOUNTEDPOINTER=1",
-					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
-					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=1",
-					"JucePlugin_Build_Unity=0",
-					"JucePlugin_Build_LV2=0",
-					"JucePlugin_Enable_IAA=0",
-					"JucePlugin_Enable_ARA=0",
-					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
-					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
-					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
-					"JucePlugin_ProducesMidiOutput=0",
-					"JucePlugin_IsMidiEffect=0",
-					"JucePlugin_EditorRequiresKeyboardFocus=1",
-					"JucePlugin_Version=1.0.0",
-					"JucePlugin_VersionCode=0x10000",
-					"JucePlugin_VersionString=\\\"1.0.0\\\"",
-					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
-					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
-					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
-					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
-					"JucePlugin_AAXDisableBypass=0",
-					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
-					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
-					"JucePlugin_VSTNumMidiInputs=16",
-					"JucePlugin_VSTNumMidiOutputs=16",
-					"JucePlugin_ARAContentTypes=0",
-					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
-					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
-					"JucePlugin_MaxNumInputChannels=2",
-					"JucePlugin_MaxNumOutputChannels=2",
-					"JucePlugin_PreferredChannelConfigurations={2,2}",
-					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"$(SRCROOT)/../../JuceLibraryCode",
-					"/Users/Supash/JUCE/modules",
-					"/Users/Supash/JUCE/modules/juce_audio_plugin_client/AU",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
-				INFOPLIST_PREPROCESS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-lAudioEQ";
-				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "Vayu";
 				USE_HEADERMAP = NO;
 				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1997,18 +1775,18 @@
 					"JucePlugin_Build_AU=1",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 					"JucePlugin_Build_LV2=0",
 					"JucePlugin_Enable_IAA=0",
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
+					"JucePlugin_Desc=\\\"Modular\\ multi-effect\\ rack\\\"",
 					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://supashbhat.github.io\\\"",
 					"JucePlugin_ManufacturerEmail=\\\"\\\"",
 					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
+					"JucePlugin_PluginCode=0x56617975",
 					"JucePlugin_IsSynth=0",
 					"JucePlugin_WantsMidiInput=0",
 					"JucePlugin_ProducesMidiOutput=0",
@@ -2022,11 +1800,11 @@
 					"JucePlugin_Vst3Category=\\\"Fx\\\"",
 					"JucePlugin_AUMainType=\\'aufx\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
+					"JucePlugin_AUExportPrefix=VayuAU",
+					"JucePlugin_AUExportPrefixQuoted=\\\"VayuAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
+					"JucePlugin_AAXIdentifier=com.supash.vayu",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
 					"JucePlugin_AAXCategory=0",
@@ -2034,13 +1812,13 @@
 					"JucePlugin_AAXDisableMultiMono=0",
 					"JucePlugin_IAAType=0x61757278",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
+					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Vayu\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.supash.vayu.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.supash.vayu.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JucePlugin_MaxNumInputChannels=2",
 					"JucePlugin_MaxNumOutputChannels=2",
@@ -2080,139 +1858,9 @@
 			};
 			name = Debug;
 		};
-		F9B7FAD1628B488E7EE4A465 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
-				DEAD_CODE_STRIPPING = YES;
-				EXCLUDED_ARCHS = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_NDEBUG=1",
-					"NDEBUG=1",
-					"JUCE_PROJUCER_VERSION=0x80004",
-					"JUCE_MODULE_AVAILABLE_juce_analytics=1",
-					"JUCE_MODULE_AVAILABLE_juce_animation=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_basics=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_devices=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_formats=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_processors=1",
-					"JUCE_MODULE_AVAILABLE_juce_audio_utils=1",
-					"JUCE_MODULE_AVAILABLE_juce_box2d=1",
-					"JUCE_MODULE_AVAILABLE_juce_core=1",
-					"JUCE_MODULE_AVAILABLE_juce_cryptography=1",
-					"JUCE_MODULE_AVAILABLE_juce_data_structures=1",
-					"JUCE_MODULE_AVAILABLE_juce_dsp=1",
-					"JUCE_MODULE_AVAILABLE_juce_events=1",
-					"JUCE_MODULE_AVAILABLE_juce_graphics=1",
-					"JUCE_MODULE_AVAILABLE_juce_gui_basics=1",
-					"JUCE_MODULE_AVAILABLE_juce_gui_extra=1",
-					"JUCE_MODULE_AVAILABLE_juce_javascript=1",
-					"JUCE_MODULE_AVAILABLE_juce_midi_ci=1",
-					"JUCE_MODULE_AVAILABLE_juce_opengl=1",
-					"JUCE_MODULE_AVAILABLE_juce_osc=1",
-					"JUCE_MODULE_AVAILABLE_juce_product_unlocking=1",
-					"JUCE_MODULE_AVAILABLE_juce_video=1",
-					"JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1",
-					"JUCE_STRICT_REFCOUNTEDPOINTER=1",
-					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
-					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=1",
-					"JucePlugin_Build_Unity=0",
-					"JucePlugin_Build_LV2=0",
-					"JucePlugin_Enable_IAA=0",
-					"JucePlugin_Enable_ARA=0",
-					"JucePlugin_Name=\\\"Vayu\\\"",
-					"JucePlugin_Desc=\\\"Vayu\\\"",
-					"JucePlugin_Manufacturer=\\\"Supash\\ Bhat\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"supashbhat.github.io\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
-					"JucePlugin_ManufacturerCode=0x53706862",
-					"JucePlugin_PluginCode=0x41657131",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
-					"JucePlugin_ProducesMidiOutput=0",
-					"JucePlugin_IsMidiEffect=0",
-					"JucePlugin_EditorRequiresKeyboardFocus=1",
-					"JucePlugin_Version=1.0.0",
-					"JucePlugin_VersionCode=0x10000",
-					"JucePlugin_VersionString=\\\"1.0.0\\\"",
-					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
-					"JucePlugin_AUSubType=JucePlugin_PluginCode",
-					"JucePlugin_AUExportPrefix=AudioEQAU",
-					"JucePlugin_AUExportPrefixQuoted=\\\"AudioEQAU\\\"",
-					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.supash.vayu",
-					"JucePlugin_AAXIdentifier=com.yourcompany.AudioEQ",
-					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
-					"JucePlugin_AAXDisableBypass=0",
-					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
-					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"Supash\\ Bhat:\\ Audio\\ EQ\\\"",
-					"JucePlugin_VSTNumMidiInputs=16",
-					"JucePlugin_VSTNumMidiOutputs=16",
-					"JucePlugin_ARAContentTypes=0",
-					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.AudioEQ.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.AudioEQ.aradocumentarchive.1.0.0\\\"",
-					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
-					"JucePlugin_MaxNumInputChannels=2",
-					"JucePlugin_MaxNumOutputChannels=2",
-					"JucePlugin_PreferredChannelConfigurations={2,2}",
-					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
-					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"$(SRCROOT)/../../JuceLibraryCode",
-					"/Users/Supash/JUCE/modules",
-					"/Users/Supash/JUCE/modules/juce_audio_plugin_client/AU",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
-				INFOPLIST_PREPROCESS = NO;
-				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_HEADER_SEARCH_PATHS = "/Users/Supash/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/Supash/JUCE/modules /Users/Supash/JUCE/modules/juce_audio_plugin_client/AU";
-				OTHER_LDFLAGS = "-lAudioEQ";
-				PRODUCT_BUNDLE_IDENTIFIER = com.supash.vayu;
-				PRODUCT_NAME = "Vayu";
-				USE_HEADERMAP = NO;
-				VALIDATE_WORKSPACE_SKIPPED_SDK_FRAMEWORKS = OpenGL;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		146176028DA1D491AFDE05E6 = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C3696CBFEFD07B4C82CCB217,
-				F9B7FAD1628B488E7EE4A465,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		1693892AD4A837B0D9003E88 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-class AudioEQAudioProcessor : public juce::AudioProcessor,
+class VayuAudioProcessor : public juce::AudioProcessor,
                               private juce::AudioProcessorValueTreeState::Listener
 {
 public:
@@ -18,8 +18,8 @@ public:
         compressor
     };
 
-    AudioEQAudioProcessor();
-    ~AudioEQAudioProcessor() override;
+    VayuAudioProcessor();
+    ~VayuAudioProcessor() override;
 
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
@@ -168,5 +168,5 @@ private:
     static juce::File getUserRackPresetDirectory();
     static juce::File getUserEffectPresetDirectory(EffectSlot effectSlot);
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioEQAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VayuAudioProcessor)
 };
