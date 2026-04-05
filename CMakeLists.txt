@@ -47,6 +47,15 @@ target_sources(Vayu
         Source/PluginProcessor.h
 )
 
+if(APPLE)
+    set(VAYU_APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/Builds/MacOSX/Vayu.icns")
+    if(EXISTS "${VAYU_APP_ICON}" AND TARGET Vayu_Standalone)
+        set_source_files_properties("${VAYU_APP_ICON}" PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+        target_sources(Vayu_Standalone PRIVATE "${VAYU_APP_ICON}")
+        set_target_properties(Vayu_Standalone PROPERTIES MACOSX_BUNDLE_ICON_FILE "Vayu.icns")
+    endif()
+endif()
+
 target_compile_definitions(Vayu
     PUBLIC
         JUCE_STRICT_REFCOUNTEDPOINTER=1

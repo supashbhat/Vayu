@@ -8,11 +8,11 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.AudioEQ</string>
+    <string>com.supash.vayu</string>
     <key>CFBundleName</key>
-    <string>AudioEQ</string>
+    <string>Vayu</string>
     <key>CFBundleDisplayName</key>
-    <string>AudioEQ</string>
+    <string>Vayu</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>

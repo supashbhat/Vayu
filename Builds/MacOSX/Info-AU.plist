@@ -10,9 +10,9 @@
     <key>CFBundleIdentifier</key>
     <string>com.supash.vayu</string>
     <key>CFBundleName</key>
-    <string>AudioEQ</string>
+    <string>Vayu</string>
     <key>CFBundleDisplayName</key>
-    <string>AudioEQ</string>
+    <string>Vayu</string>
     <key>CFBundlePackageType</key>
     <string>BNDL</string>
     <key>CFBundleSignature</key>
@@ -33,7 +33,7 @@
         <key>description</key>
         <string>Vayu</string>
         <key>factoryFunction</key>
-        <string>AudioEQAUFactory</string>
+        <string>VayuAUFactory</string>
         <key>manufacturer</key>
         <string>Sphb</string>
         <key>type</key>
