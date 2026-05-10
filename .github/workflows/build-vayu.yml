@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'wavefunction-graffiti/**'
+      - 'docs/wavefunction-graffiti/**'
+      - '.github/workflows/deploy-wavefunction-graffiti.yml'
+      - 'AGENTS.md'
   workflow_dispatch:
 
 env:
